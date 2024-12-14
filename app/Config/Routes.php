@@ -25,4 +25,8 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
   $routes->resource('users', ['controller' => '\App\Controllers\Users']);
 
   $routes->get('master_kategori', 'MasterKategori::index');
+
+  $routes->group('master_kategori', [], function ($routes) {
+    $routes->resource('kelas', ['controller' => '\App\Controllers\MasterKategoriKelas']);
+  });
 });
