@@ -23,4 +23,6 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
 
   $routes->get('users/active/(:num)/(:num)', 'Users::active/$1/$2');
   $routes->resource('users', ['controller' => '\App\Controllers\Users']);
+
+  $routes->get('master_kategori', 'MasterKategori::index');
 });
