@@ -24,7 +24,7 @@ if (!function_exists('getProfile')) {
   function getProfile()
   {
     $id = logged('id');
-    $data = model('App\Models\UserModel')->select('users.*, title')->join('roles', 'roles.id = users.role_id')->find($id);
+    $data = model('App\Models\UserModel')->select('tb_user.*, title')->join('tb_role', 'tb_role.id = tb_user.role_id')->find($id);
     return $data;
   }
 }

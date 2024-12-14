@@ -27,7 +27,7 @@ class Users extends BaseController
         $data = [
             'title' => $this->title,
             'link' => $this->link,
-            'data' => $this->model->select('users.*, title')->join('roles', 'roles.id = users.role_id')->findAll()
+            'data' => $this->model->select('tb_user.*, title')->join('tb_role', 'tb_role.id = tb_user.role_id')->findAll()
         ];
 
         return view($this->view . '/index', $data);

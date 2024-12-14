@@ -7,7 +7,7 @@ use App\Models\BaseModel;
 class UserModel extends BaseModel
 {
   // protected $DBGroup          = 'default';
-  protected $table            = 'users';
+  protected $table            = 'tb_user';
   protected $primaryKey       = 'id';
   protected $useAutoIncrement = true;
   protected $returnType       = 'array';
@@ -53,6 +53,6 @@ class UserModel extends BaseModel
 
   public function getRoles()
   {
-    return $this->db->table('roles')->get()->getResultArray();
+    return $this->db->table('tb_role')->get()->getResultArray();
   }
 }

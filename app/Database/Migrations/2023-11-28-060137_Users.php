@@ -45,7 +45,7 @@ class Users extends Migration
             'is_active' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
-				'default' => 1
+                'default' => 1
             ],
             'cid' => [
                 'type'           => 'INT',
@@ -82,12 +82,12 @@ class Users extends Migration
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey('username', 'username');
         $this->forge->addUniqueKey('email', 'email');
-        $this->forge->addForeignKey('role_id', 'roles', 'id');
-        $this->forge->createTable('users');
+        $this->forge->addForeignKey('role_id', 'tb_role', 'id');
+        $this->forge->createTable('tb_user');
     }
 
     public function down()
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('tb_user');
     }
 }

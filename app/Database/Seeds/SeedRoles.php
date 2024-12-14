@@ -17,6 +17,6 @@ class SeedRoles extends Seeder
             ],
         ];
 
-        $this->db->table('roles')->insertBatch($data);
+        $this->db->table('tb_role')->insertBatch($data);
     }
 }
