@@ -13,7 +13,10 @@ class SeedRoles extends Seeder
                 'title' => 'Administrator',
             ],
             [
-                'title' => 'Member',
+                'title' => 'Bendahara',
+            ],
+            [
+                'title' => 'Kepsek',
             ],
         ];
 
