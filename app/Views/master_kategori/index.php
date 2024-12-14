@@ -38,11 +38,26 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Jenis</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $a = 1;
+                  foreach ($kelas as $d): ?>
+                    <tr>
+                      <td><?= $a++; ?></td>
+                      <td><?= $d['nama']; ?></td>
+                      <td>
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>">Edit</a>
+                        <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
+                          <?= csrf_field(); ?>
+                          <input type='hidden' name='_method' value='DELETE' />
+                          <!-- GET, POST, PUT, PATCH, DELETE-->
+                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'>Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>

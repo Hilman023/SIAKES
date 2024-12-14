@@ -26,7 +26,8 @@ class MasterKategori extends BaseController
         $data = [
             'title' => $this->title,
             'link' => $this->link,
-            'data' => $this->model->findAll()
+            'data' => $this->model->findAll(),
+            'kelas' => $this->model->where('jenis', 'kelas')->findAll()
         ];
 
         return view($this->view . '/index', $data);
