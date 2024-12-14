@@ -25,12 +25,12 @@
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
     <div class="row">
-      <div class="col-6">
+      <div class="col-6 mb-2">
 
         <div class="card">
           <div class="card-body ">
-            <h2>Kategori Kelas</h2>
-            <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2">New</a>
+            <h4>Kategori Kelas</h4>
+            <a href="<?= base_url($link . '/kelas/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
             <div class="table-responsive">
 
               <table class="table " id="table2">
@@ -48,8 +48,89 @@
                       <td><?= $a++; ?></td>
                       <td><?= $d['nama']; ?></td>
                       <td>
-                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>">Edit</a>
-                        <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/kelas/' . $d['id'] . '/edit'); ?>">Edit</a>
+                        <form class="d-inline" action='<?= base_url($link . '/kelas/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
+                          <?= csrf_field(); ?>
+                          <input type='hidden' name='_method' value='DELETE' />
+                          <!-- GET, POST, PUT, PATCH, DELETE-->
+                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'>Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mb-2">
+
+        <div class="card">
+          <div class="card-body ">
+            <h4>Kategori Jurusan</h4>
+            <a href="<?= base_url($link . '/jurusan/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
+            <div class="table-responsive">
+
+              <table class="table " id="table2">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $a = 1;
+                  foreach ($jurusan as $d): ?>
+                    <tr>
+                      <td><?= $a++; ?></td>
+                      <td><?= $d['nama']; ?></td>
+                      <td>
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/jurusan/' . $d['id'] . '/edit'); ?>">Edit</a>
+                        <form class="d-inline" action='<?= base_url($link . '/jurusan/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
+                          <?= csrf_field(); ?>
+                          <input type='hidden' name='_method' value='DELETE' />
+                          <!-- GET, POST, PUT, PATCH, DELETE-->
+                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'>Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-6 mb-2">
+
+        <div class="card">
+          <div class="card-body ">
+            <h4>Tahun Ajar</h4>
+            <a href="<?= base_url($link . '/tahun/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
+            <div class="table-responsive">
+
+              <table class="table " id="table2">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $a = 1;
+                  foreach ($tahun as $d): ?>
+                    <tr>
+                      <td><?= $a++; ?></td>
+                      <td><?= $d['nama']; ?></td>
+                      <td>
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/tahun/' . $d['id'] . '/edit'); ?>">Edit</a>
+                        <form class="d-inline" action='<?= base_url($link . '/tahun/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                           <?= csrf_field(); ?>
                           <input type='hidden' name='_method' value='DELETE' />
                           <!-- GET, POST, PUT, PATCH, DELETE-->
