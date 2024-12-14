@@ -31,7 +31,7 @@
           <div class="card-header">
             Kelola <?= $title; ?>
           </div>
-          <div class="card-body">
+          <div class="card-body table-responsive">
             <table class="table" id="table2">
               <thead>
                 <tr>
