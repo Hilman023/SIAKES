@@ -29,7 +29,7 @@ class MasterKategori extends BaseController
             'data' => $this->model->findAll(),
             'kelas' => $this->model->where('jenis', 'kelas')->findAll(),
             'jurusan' => $this->model->where('jenis', 'jurusan')->findAll(),
-            'tahun' => $this->model->where('jenis', 'tahun')->findAll(),
+            'tahun' => $this->model->where('jenis', 'tahun')->orderBy('id', 'DESC')->findAll(),
         ];
 
         return view($this->view . '/index', $data);

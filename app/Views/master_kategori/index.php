@@ -38,7 +38,7 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -48,12 +48,12 @@
                       <td><?= $a++; ?></td>
                       <td><?= $d['nama']; ?></td>
                       <td>
-                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/kelas/' . $d['id'] . '/edit'); ?>">Edit</a>
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/kelas/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                         <form class="d-inline" action='<?= base_url($link . '/kelas/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                           <?= csrf_field(); ?>
                           <input type='hidden' name='_method' value='DELETE' />
                           <!-- GET, POST, PUT, PATCH, DELETE-->
-                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'>Delete</button>
+                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
                         </form>
                       </td>
                     </tr>
@@ -78,7 +78,7 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -88,12 +88,12 @@
                       <td><?= $a++; ?></td>
                       <td><?= $d['nama']; ?></td>
                       <td>
-                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/jurusan/' . $d['id'] . '/edit'); ?>">Edit</a>
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/jurusan/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                         <form class="d-inline" action='<?= base_url($link . '/jurusan/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                           <?= csrf_field(); ?>
                           <input type='hidden' name='_method' value='DELETE' />
                           <!-- GET, POST, PUT, PATCH, DELETE-->
-                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'>Delete</button>
+                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
                         </form>
                       </td>
                     </tr>
@@ -119,7 +119,7 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -129,12 +129,12 @@
                       <td><?= $a++; ?></td>
                       <td><?= $d['nama']; ?></td>
                       <td>
-                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/tahun/' . $d['id'] . '/edit'); ?>">Edit</a>
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/tahun/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                         <form class="d-inline" action='<?= base_url($link . '/tahun/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                           <?= csrf_field(); ?>
                           <input type='hidden' name='_method' value='DELETE' />
                           <!-- GET, POST, PUT, PATCH, DELETE-->
-                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'>Delete</button>
+                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
                         </form>
                       </td>
                     </tr>

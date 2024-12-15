@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
-class MasterKategoriKelas extends BaseController
+class MasterKategoriTahun extends BaseController
 {
     /**
      * Return an array of resource objects, themselves in array format
@@ -13,10 +13,10 @@ class MasterKategoriKelas extends BaseController
      */
 
     private $model;
-    private $link = 'master_kategori/kelas';
-    private $view = 'master_kategori_kelas';
-    private $title = 'Master Kategori Kelas';
-    private $jenis = 'kelas';
+    private $link = 'master_kategori/tahun';
+    private $view = 'master_kategori_tahun';
+    private $title = 'Master Kategori Tahun';
+    private $jenis = 'tahun';
     private $redirect = 'master_kategori';
     public function __construct()
     {

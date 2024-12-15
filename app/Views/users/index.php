@@ -26,7 +26,7 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-12">
-        <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2">New</a>
+        <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
         <div class="card">
           <div class="card-header">
             Kelola <?= $title; ?>
@@ -69,12 +69,12 @@
                       <?php endif; ?>
                     </td>
                     <td>
-                      <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>">Edit</a>
+                      <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                       <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                         <?= csrf_field(); ?>
                         <input type='hidden' name='_method' value='DELETE' />
                         <!-- GET, POST, PUT, PATCH, DELETE-->
-                        <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'>Delete</button>
+                        <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
                       </form>
                     </td>
                   </tr>

@@ -28,5 +28,7 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
 
   $routes->group('master_kategori', [], function ($routes) {
     $routes->resource('kelas', ['controller' => '\App\Controllers\MasterKategoriKelas']);
+    $routes->resource('jurusan', ['controller' => '\App\Controllers\MasterKategoriJurusan']);
+    $routes->resource('tahun', ['controller' => '\App\Controllers\MasterKategoriTahun']);
   });
 });
