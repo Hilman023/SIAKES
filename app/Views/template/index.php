@@ -23,10 +23,9 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <strong>Copyright &copy; <?= copyright('2023'); ?> <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-      All rights reserved.
+      <span>Sistem Informasi Administrasi Keuangan Sekolah SMK Nurul Gina Abidin <span class="text-primary font-weight-bold">SIAKES</span> | Copyright © <?= copyright('2024'); ?>. All rights reserved </span>
       <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
+        <b>Version</b> 1.0.0
       </div>
     </footer>
 
