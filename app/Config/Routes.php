@@ -31,4 +31,6 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
     $routes->resource('jurusan', ['controller' => '\App\Controllers\MasterKategoriJurusan']);
     $routes->resource('tahun', ['controller' => '\App\Controllers\MasterKategoriTahun']);
   });
+
+  $routes->resource('jenis_pembayaran', ['controller' => '\App\Controllers\JenisPembayaran']);
 });

@@ -11,5 +11,6 @@ class All extends Seeder
     $this->call('SeedRoles');
     $this->call('SeedUsers');
     $this->call('SeedTbMasterKategori');
+    $this->call('SeedTbJenisPembayaran');
   }
 }

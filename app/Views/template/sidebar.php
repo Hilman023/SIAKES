@@ -62,6 +62,15 @@ $data_user = getProfile();
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="<?= base_url('jenis_pembayaran'); ?>" class="nav-link <?= ($segment == 'jenis_pembayaran') ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Kelola Jenis Pembayaran
+              </p>
+            </a>
+          </li>
+
         <?php endif; ?>
         <li class="nav-item  <?= ($segment == 'profile' || $segment == 'change-password') ? 'menu-open' : ''; ?>">
           <a href="#" class="nav-link">
