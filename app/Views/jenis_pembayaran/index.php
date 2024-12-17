@@ -49,7 +49,7 @@
                     <td><?= $a++; ?></td>
                     <td><?= $d['nama']; ?></td>
                     <td><?= $d['nama_kategori']; ?></td>
-                    <td><?= $d['nominal']; ?></td>
+                    <td>Rp.<?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                     <td>
                       <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                       <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
