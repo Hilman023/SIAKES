@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class SeedTbJenisPembayaran extends Seeder
+class SeedTbJenisTransaksi extends Seeder
 {
     public function run()
     {
@@ -84,6 +84,10 @@ class SeedTbJenisPembayaran extends Seeder
 
         ];
 
-        $this->db->table('tb_jenis_pembayaran')->insertBatch($data);
+        // $this->db->table('tb_jenis_pembayaran')->insertBatch($data);
+
+        $sql = "INSERT INTO tb_jenis_transaksi (nama, id_kategori_sub, nominal, qty, total, keterangan) VALUES ('Jas Almamater', '1', '200000', '1', '200000', 'kelas 10');";
+
+        $this->db->query($sql);
     }
 }
