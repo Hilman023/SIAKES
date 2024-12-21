@@ -48,23 +48,6 @@ class SeedTbMasterKategori extends Seeder
                 'jenis' => 'jurusan',
             ],
 
-            [
-                'nama' => 'pembayaran',
-                'jenis' => 'pemasukan',
-            ],
-            [
-                'nama' => 'kas',
-                'jenis' => 'pemasukan',
-            ],
-
-            [
-                'nama' => 'honorarium',
-                'jenis' => 'pengeluaran',
-            ],
-            [
-                'nama' => 'hutang',
-                'jenis' => 'pengeluaran',
-            ],
 
 
         ];
