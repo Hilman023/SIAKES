@@ -19,6 +19,17 @@ class TbGuru extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'nama' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'tempat_lahir' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'tanggal_lahir' => [
+                'type'       => 'DATE',
+            ],
             'jk' => [
                 'type'       => 'CHAR',
                 'constraint' => '1',
