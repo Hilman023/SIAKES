@@ -88,15 +88,4 @@
 <?= $this->endSection('content') ?>
 
 <?= $this->section('script') ?>
-<script>
-  function calTotal() {
-    var nominal = parseFloat($('#nominal').val());
-    var qty = parseFloat($('#qty').val());
-    var total = nominal * qty;
-
-    $('#total').val(total)
-  }
-  $('#nominal').on('keyup', calTotal);
-  $('#qty').on('keyup', calTotal);
-</script>
 <?= $this->endSection('script') ?>
