@@ -14,6 +14,7 @@ class Siswa extends BaseController
 
     private $model;
     private $modelkategori;
+    private $modelsiswahistory;
     private $link = 'siswa';
     private $view = 'siswa';
     private $title = 'Siswa';
@@ -21,6 +22,7 @@ class Siswa extends BaseController
     {
         $this->model = new \App\Models\SiswaModel();
         $this->modelkategori = new \App\Models\MasterKategoriModel();
+        $this->modelsiswahistory = new \App\Models\SiswaHistoryModel();
     }
 
     public function index()
@@ -41,7 +43,24 @@ class Siswa extends BaseController
      */
     public function show($id = null)
     {
-        return redirect()->to($this->link);
+        $result = $this->model->find($id);
+        if (!$result) {
+            setAlert('warning', 'Warning', 'NOT VALID');
+            return redirect()->to($this->link);
+        }
+
+        $data = [
+            'title' => $this->title,
+            'link' => $this->link,
+            'data' => $result,
+            'jk' => $this->model->jk,
+            'history' => $this->modelsiswahistory->select('kt_kelas.nama as nama_kelas, kt_jurusan.nama as nama_jurusan, kt_tahun.nama as nama_tahun')->join('tb_master_kategori as kt_kelas', 'kt_kelas.id = tb_siswa_history.id_kelas')->join('tb_master_kategori as kt_jurusan', 'kt_jurusan.id = tb_siswa_history.id_jurusan')->join('tb_master_kategori as kt_tahun', 'kt_tahun.id = tb_siswa_history.id_tahun')->where('id_siswa', $id)->findAll(),
+            'kelas' => $this->modelkategori->where('jenis', 'kelas')->findAll(),
+            'jurusan' => $this->modelkategori->where('jenis', 'jurusan')->findAll(),
+            'tahun' => $this->modelkategori->where('jenis', 'tahun')->orderBy('id', 'DESC')->findAll(),
+        ];
+
+        return view($this->view . '/show', $data);
     }
 
     /**
@@ -102,7 +121,21 @@ class Siswa extends BaseController
             'id_tahun' => htmlspecialchars($this->request->getVar('id_tahun')),
         ];
 
+
+
         $res = $this->model->save($data);
+
+        $last_id = $this->model->limit(1)->orderBy('id', 'DESC')->first()['id'];
+
+        $data_history = [
+            'id_siswa' => $last_id,
+            'id_kelas' => $data['id_kelas'],
+            'id_jurusan' => $data['id_jurusan'],
+            'id_tahun' => $data['id_tahun'],
+        ];
+
+        $this->modelsiswahistory->insert($data_history);
+
         if ($res) {
             setAlert('success', 'Success', 'Add Success');
         } else {
@@ -183,6 +216,18 @@ class Siswa extends BaseController
             'id_tahun' => htmlspecialchars($this->request->getVar('id_tahun')),
         ];
 
+
+        // update history jika beda
+        if (($result['id_kelas'] != $data['id_kelas']) || ($result['id_jurusan'] != $data['id_jurusan'])($result['id_tahun'] != $data['id_tahun'])) {
+            $data_history = [
+                'id_siswa' => $id,
+                'id_kelas' => $data['id_kelas'],
+                'id_jurusan' => $data['id_jurusan'],
+                'id_tahun' => $data['id_tahun'],
+            ];
+
+            $this->modelsiswahistory->insert($data_history);
+        }
 
         $res = $this->model->update($id, $data);
         if ($res) {

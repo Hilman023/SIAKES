@@ -65,6 +65,7 @@
                     <td><?= $d['nama_jurusan']; ?></td>
                     <td><?= $d['nama_tahun']; ?></td>
                     <td>
+                      <a class="btn btn-info btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . ''); ?>"><i class="far fa-eye"></i></a>
                       <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                       <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                         <?= csrf_field(); ?>
