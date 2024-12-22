@@ -63,10 +63,10 @@ $data_user = getProfile();
           </li>
 
           <li class="nav-item">
-            <a href="<?= base_url('jenis_pembayaran'); ?>" class="nav-link <?= ($segment == 'jenis_pembayaran') ? 'active' : ''; ?>">
+            <a href="<?= base_url('jenis_transaksi'); ?>" class="nav-link <?= ($segment == 'jenis_transaksi') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Kelola Jenis Pembayaran
+                Kelola Jenis Transaksi
               </p>
             </a>
           </li>

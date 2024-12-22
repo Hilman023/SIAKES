@@ -38,7 +38,11 @@
                   <th>No</th>
                   <th>Nama</th>
                   <th>Kategori</th>
+                  <th>Sub Kategori</th>
                   <th>Nominal</th>
+                  <th>Qty</th>
+                  <th>Total</th>
+                  <th>Keterangan</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -49,7 +53,11 @@
                     <td><?= $a++; ?></td>
                     <td><?= $d['nama']; ?></td>
                     <td><?= $d['nama_kategori']; ?></td>
+                    <td><?= $d['nama_kategori_sub']; ?></td>
                     <td>Rp.<?= number_format($d['nominal'], 0, ',', '.'); ?></td>
+                    <td><?= $d['qty']; ?></td>
+                    <td>Rp.<?= number_format($d['total'], 0, ',', '.'); ?></td>
+                    <td><?= $d['keterangan']; ?></td>
                     <td>
                       <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                       <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>

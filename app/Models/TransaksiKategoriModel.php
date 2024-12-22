@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class JenisPembayaranModel extends BaseModel
+class TransaksiKategoriModel extends BaseModel
 {
   // protected $DBGroup          = 'default';
-  protected $table            = 'tb_jenis_pembayaran';
+  protected $table            = 'tb_transaksi_kategori';
   protected $primaryKey       = 'id';
   protected $useAutoIncrement = true;
   protected $returnType       = 'array';
@@ -15,8 +15,6 @@ class JenisPembayaranModel extends BaseModel
   protected $protectFields    = true;
   protected $allowedFields    = [
     'nama',
-    'id_master_kategori',
-    'nominal',
   ];
 
   // Dates

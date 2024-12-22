@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
-class JenisPembayaran extends BaseController
+class JenisTransaksi extends BaseController
 {
     /**
      * Return an array of resource objects, themselves in array format
@@ -13,15 +13,15 @@ class JenisPembayaran extends BaseController
      */
 
     private $model;
-    private $modelkategori;
-    private $link = 'jenis_pembayaran';
-    private $view = 'jenis_pembayaran';
-    private $title = 'Jenis Pembayaran';
+    private $modelkategorisub;
+    private $link = 'jenis_transaksi';
+    private $view = 'jenis_transaksi';
+    private $title = 'Jenis Transaksi';
 
     public function __construct()
     {
-        $this->model = new \App\Models\JenisPembayaranModel();
-        $this->modelkategori = new \App\Models\MasterKategoriModel();
+        $this->model = new \App\Models\JenisTransaksiModel();
+        $this->modelkategorisub = new \App\Models\TransaksiKategoriSubModel();
     }
 
     public function index()
@@ -29,7 +29,7 @@ class JenisPembayaran extends BaseController
         $data = [
             'title' => $this->title,
             'link' => $this->link,
-            'data' => $this->model->select('tb_jenis_pembayaran.*, tb_master_kategori.nama as nama_kategori')->join('tb_master_kategori', 'tb_master_kategori.id = tb_jenis_pembayaran.id_master_kategori')->findAll()
+            'data' => $this->model->select('tb_jenis_transaksi.*, tb_transaksi_kategori_sub.nama as nama_kategori_sub, tb_transaksi_kategori.nama as nama_kategori')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_jenis_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->orderBy('id', 'DESC')->findAll()
         ];
 
         return view($this->view . '/index', $data);
@@ -55,7 +55,7 @@ class JenisPembayaran extends BaseController
         $data = [
             'title' => $this->title,
             'link' => $this->link,
-            'kategori' => $this->modelkategori->where('jenis', 'pemasukan')->orWhere('jenis', 'pengeluaran')->findAll(),
+            'kategori_sub' => $this->modelkategorisub->select('tb_transaksi_kategori_sub.*, tb_transaksi_kategori.nama as nama_kategori')->join('tb_transaksi_kategori', 'tb_transaksi_kategori_sub.id_kategori = tb_transaksi_kategori.id')->findAll(),
         ];
 
         return view($this->view . '/new', $data);
@@ -70,8 +70,11 @@ class JenisPembayaran extends BaseController
     {
         $rules = [
             'nama' => 'required',
-            'id_master_kategori' => 'required',
-            'nominal' => 'required',
+            'id_kategori_sub' => 'required',
+            // 'nominal' => 'required',
+            // 'qty' => 'required',
+            // 'total' => 'required',
+            // 'keterangan' => 'required',
         ];
 
         $input = $this->request->getVar();
@@ -82,8 +85,11 @@ class JenisPembayaran extends BaseController
 
         $data = [
             'nama' => htmlspecialchars($this->request->getVar('nama')),
-            'id_master_kategori' => htmlspecialchars($this->request->getVar('id_master_kategori')),
+            'id_kategori_sub' => htmlspecialchars($this->request->getVar('id_kategori_sub')),
             'nominal' => htmlspecialchars($this->request->getVar('nominal')),
+            'qty' => htmlspecialchars($this->request->getVar('qty')),
+            'total' => htmlspecialchars($this->request->getVar('total')),
+            'keterangan' => htmlspecialchars($this->request->getVar('keterangan')),
         ];
 
 
@@ -114,7 +120,7 @@ class JenisPembayaran extends BaseController
             'title' => $this->title,
             'link' => $this->link,
             'data' => $result,
-            'kategori' => $this->modelkategori->where('jenis', 'pemasukan')->orWhere('jenis', 'pengeluaran')->findAll(),
+            'kategori_sub' => $this->modelkategorisub->select('tb_transaksi_kategori_sub.*, tb_transaksi_kategori.nama as nama_kategori ')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->findAll(),
         ];
 
         return view($this->view . '/edit', $data);
@@ -135,12 +141,14 @@ class JenisPembayaran extends BaseController
 
         $rules = [
             'nama' => 'required',
-            'id_master_kategori' => 'required',
-            'nominal' => 'required',
+            'id_kategori_sub' => 'required',
+            // 'nominal' => 'required',
+            // 'qty' => 'required',
+            // 'total' => 'required',
+            // 'keterangan' => 'required',
         ];
 
         $input = $this->request->getVar();
-
 
         if (!$this->validateData($input, $rules)) {
             return redirect()->back()->withInput();
@@ -148,8 +156,11 @@ class JenisPembayaran extends BaseController
 
         $data = [
             'nama' => htmlspecialchars($this->request->getVar('nama')),
-            'id_master_kategori' => htmlspecialchars($this->request->getVar('id_master_kategori')),
+            'id_kategori_sub' => htmlspecialchars($this->request->getVar('id_kategori_sub')),
             'nominal' => htmlspecialchars($this->request->getVar('nominal')),
+            'qty' => htmlspecialchars($this->request->getVar('qty')),
+            'total' => htmlspecialchars($this->request->getVar('total')),
+            'keterangan' => htmlspecialchars($this->request->getVar('keterangan')),
         ];
 
         $res = $this->model->update($id, $data);
