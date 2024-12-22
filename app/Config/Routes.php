@@ -33,4 +33,5 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
   });
 
   $routes->resource('jenis_transaksi', ['controller' => '\App\Controllers\JenisTransaksi']);
+  $routes->resource('transaksi_kategori_sub', ['controller' => '\App\Controllers\TransaksiKategoriSub']);
 });

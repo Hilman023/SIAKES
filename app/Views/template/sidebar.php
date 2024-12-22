@@ -63,6 +63,15 @@ $data_user = getProfile();
           </li>
 
           <li class="nav-item">
+            <a href="<?= base_url('transaksi_kategori_sub'); ?>" class="nav-link <?= ($segment == 'transaksi_kategori_sub') ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Kelola Transaksi Kategori Sub
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="<?= base_url('jenis_transaksi'); ?>" class="nav-link <?= ($segment == 'jenis_transaksi') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-list"></i>
               <p>

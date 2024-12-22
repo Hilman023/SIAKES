@@ -45,4 +45,15 @@ class TransaksiKategoriSubModel extends BaseModel
 
   public $logName = false;
   public $logId = false;
+
+  public $is_manual = [
+    [
+      'id' => 0,
+      'name' => "Auto"
+    ],
+    [
+      'id' => 1,
+      'name' => "Manual"
+    ],
+  ];
 }
