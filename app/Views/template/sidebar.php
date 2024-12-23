@@ -57,7 +57,7 @@ $data_user = getProfile();
             <a href="<?= base_url('master_kategori'); ?>" class="nav-link <?= ($segment == 'master_kategori') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Kelola Master Kategori
+                Kategori Master
               </p>
             </a>
           </li>
@@ -66,7 +66,7 @@ $data_user = getProfile();
             <a href="<?= base_url('transaksi_kategori_sub'); ?>" class="nav-link <?= ($segment == 'transaksi_kategori_sub') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Kelola Transaksi Kategori Sub
+                Kategori Transaksi
               </p>
             </a>
           </li>
@@ -75,14 +75,14 @@ $data_user = getProfile();
             <a href="<?= base_url('jenis_transaksi'); ?>" class="nav-link <?= ($segment == 'jenis_transaksi') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Kelola Jenis Transaksi
+                Jenis Transaksi
               </p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="<?= base_url('guru'); ?>" class="nav-link <?= ($segment == 'guru') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-list"></i>
+              <i class="nav-icon fas fa-user-tie"></i>
               <p>
                 Kelola Guru
               </p>
@@ -91,7 +91,7 @@ $data_user = getProfile();
 
           <li class="nav-item">
             <a href="<?= base_url('siswa'); ?>" class="nav-link <?= ($segment == 'siswa') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-list"></i>
+              <i class="nav-icon fas fa-user-graduate"></i></i>
               <p>
                 Kelola Siswa
               </p>
@@ -101,9 +101,9 @@ $data_user = getProfile();
         <?php endif; ?>
         <li class="nav-item  <?= ($segment == 'profile' || $segment == 'change-password') ? 'menu-open' : ''; ?>">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon fas fa-solid fa-cog"></i>
             <p>
-              Profile
+              Pengaturan
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
@@ -112,7 +112,7 @@ $data_user = getProfile();
               <a href="<?= base_url('profile'); ?>" class="nav-link <?= ($segment == 'profile') ? 'active' : ''; ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>
-                  My Profile
+                  Edit Profil
                 </p>
               </a>
             </li>

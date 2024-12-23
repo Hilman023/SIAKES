@@ -30,12 +30,13 @@
           <div class="inner">
             <p>Penerimaan bulan ini</p>
             <!-- data yang ditampilkan dari total jumlah pemasukan perbulan -->
-            <font size="5">Rp. </font><font size="6"><b>1.000.000</b></font>
+            <font size="5">Rp. </font>
+            <font size="6"><b>1.000.000</b></font>
           </div>
           <div class="icon">
-            <i class="ion ion-bag"></i>
+            <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer"></a>
         </div>
       </div>
       <!-- ./col -->
@@ -45,12 +46,13 @@
           <div class="inner">
             <p>Pengeluaran bulan ini</p>
             <!-- data yang ditampilkan dari total jumlah pengeluaran perbulan -->
-            <font size="5">Rp. </font><font size="6"><b>100.000</b></font>
+            <font size="5">Rp. </font>
+            <font size="6"><b>100.000</b></font>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer"></a>
         </div>
       </div>
       <!-- ./col -->
@@ -60,12 +62,13 @@
           <div class="inner">
             <p>Saldo Kas</p>
             <!-- data yang ditampilkan dari total sisa jumlah uang -->
-            <font size="5">Rp. </font><font size="6"><b>900.000</b></font>
+            <font size="5">Rp. </font>
+            <font size="6"><b>900.000</b></font>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer"></a>
         </div>
       </div>
       <!-- ./col -->
@@ -80,7 +83,7 @@
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer"></a>
         </div>
       </div>
       <!-- ./col -->
