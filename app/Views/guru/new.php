@@ -84,7 +84,7 @@
 
 
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
               <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
             </form>
           </div>

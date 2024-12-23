@@ -63,7 +63,7 @@
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
               <a href="<?= base_url('profile'); ?>" class="btn btn-secondary">Batal</a>
 
 

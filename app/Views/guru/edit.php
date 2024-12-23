@@ -87,7 +87,7 @@
                 <input type="text" class="form-control <?= ($error = validation_show_error('no_hp')) ? 'border-danger' : ''; ?>" id="no_hp" name="no_hp" placeholder="no_hp" value="<?= old('no_hp', $data['no_hp']); ?>">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
               <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
             </form>
           </div>

@@ -167,7 +167,7 @@
                 </tbody>
               </table>
 
-              <a href="<?= base_url($link); ?>" class="btn btn-secondary mt-3">Home</a>
+              <a href="<?= base_url($link); ?>" class="btn btn-secondary mt-3">Kembali</a>
             </div>
           </div>
         </div>
