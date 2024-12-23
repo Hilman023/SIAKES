@@ -98,6 +98,15 @@ $data_user = getProfile();
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="<?= base_url('transaksi'); ?>" class="nav-link <?= ($segment == 'transaksi') ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Transaksi
+              </p>
+            </a>
+          </li>
+
         <?php endif; ?>
         <li class="nav-item  <?= ($segment == 'profile' || $segment == 'change-password') ? 'menu-open' : ''; ?>">
           <a href="#" class="nav-link">

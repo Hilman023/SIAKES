@@ -16,9 +16,19 @@
 
 <script src="<?= base_url(); ?>public/assets/sweetalert2/sweetalert2.all.min.js"></script>
 
+<script src="<?= base_url(); ?>public/assets/plugins/select2/js/select2.min.js"></script>
+
 
 <?= initAlert(); ?>
 <script>
+  $.fn.select2.defaults.set("theme", "bootstrap");
+
+  $('select.form-control').select2({
+    theme: 'bootstrap4',
+    width: '100%' // need to override the changed default
+    // width: 'resolve' // need to override the changed default
+  })
+
   function previewImage(input, previewDom) {
 
     if (input.files && input.files[0]) {

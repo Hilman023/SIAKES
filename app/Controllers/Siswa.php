@@ -218,7 +218,7 @@ class Siswa extends BaseController
 
 
         // update history jika beda
-        if (($result['id_kelas'] != $data['id_kelas']) || ($result['id_jurusan'] != $data['id_jurusan'])($result['id_tahun'] != $data['id_tahun'])) {
+        if (($result['id_kelas'] != $data['id_kelas']) || ($result['id_jurusan'] != $data['id_jurusan']) || ($result['id_tahun'] != $data['id_tahun'])) {
             $data_history = [
                 'id_siswa' => $id,
                 'id_kelas' => $data['id_kelas'],

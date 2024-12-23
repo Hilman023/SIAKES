@@ -26,7 +26,7 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
 
   $routes->get('master_kategori', 'MasterKategori::index');
 
-  $routes->group('master_kategori', [], function ($routes) {
+  $routes->group('master_kategori', function ($routes) {
     $routes->resource('kelas', ['controller' => '\App\Controllers\MasterKategoriKelas']);
     $routes->resource('jurusan', ['controller' => '\App\Controllers\MasterKategoriJurusan']);
     $routes->resource('tahun', ['controller' => '\App\Controllers\MasterKategoriTahun']);
@@ -36,4 +36,15 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
   $routes->resource('transaksi_kategori_sub', ['controller' => '\App\Controllers\TransaksiKategoriSub']);
   $routes->resource('guru', ['controller' => '\App\Controllers\Guru']);
   $routes->resource('siswa', ['controller' => '\App\Controllers\Siswa']);
+
+  $routes->group('transaksi', function ($routes) {
+    $routes->get('ajax_list_aktor', 'Transaksi::ajax_list_aktor');
+    $routes->get('ajax_aktor', 'Transaksi::ajax_aktor');
+    $routes->get('ajax_kategori_sub', 'Transaksi::ajax_kategori_sub');
+    $routes->get('ajax_item_transaksi', 'Transaksi::ajax_item_transaksi');
+    $routes->get('ajax_item', 'Transaksi::ajax_item');
+    $routes->get('', 'Transaksi::index');
+    $routes->get('new', 'Transaksi::new');
+    $routes->post('', 'Transaksi::create');
+  });
 });
