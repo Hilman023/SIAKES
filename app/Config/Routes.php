@@ -51,4 +51,10 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
     $routes->get('new', 'Transaksi::new');
     $routes->post('', 'Transaksi::create');
   });
+
+  $routes->group('pembayaran', function ($routes) {
+    $routes->get('ajax_transaksi_detail', 'Pembayaran::ajax_transaksi_detail');
+    $routes->get('new', 'Pembayaran::new');
+    $routes->post('', 'Pembayaran::create');
+  });
 });
