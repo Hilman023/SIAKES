@@ -34,7 +34,7 @@
             <font size="6"><b>1.000.000</b></font>
           </div>
           <div class="icon">
-            <i class="fas fa-shopping-bag"></i>
+            <i class="fas fa-download"></i>
           </div>
           <a href="#" class="small-box-footer"></a>
         </div>
@@ -50,7 +50,7 @@
             <font size="6"><b>100.000</b></font>
           </div>
           <div class="icon">
-            <i class="fas fa-chart-bar"></i>
+            <i class="fas fa-upload"></i>
           </div>
           <a href="#" class="small-box-footer"></a>
         </div>
@@ -66,7 +66,7 @@
             <font size="6"><b>900.000</b></font>
           </div>
           <div class="icon">
-            <i class="fas fa-shopping-bag"></i>
+            <i class="fas fa-money-bill-wave-alt"></i>
           </div>
           <a href="#" class="small-box-footer"></a>
         </div>
@@ -81,7 +81,7 @@
             <font size="6"><b>100</b></font>
           </div>
           <div class="icon">
-            <i class="fas fa-chart-pie"></i>
+            <i class="fas fa-users"></i>
           </div>
           <a href="#" class="small-box-footer"></a>
         </div>

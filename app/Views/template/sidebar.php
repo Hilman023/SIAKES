@@ -110,7 +110,7 @@ $data_user = getProfile();
         <?php endif; ?>
         <li class="nav-item  <?= ($segment == 'profile' || $segment == 'change-password') ? 'menu-open' : ''; ?>">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-solid fa-cog"></i>
+            <i class="nav-icon fas fa-user-cog"></i>
             <p>
               Pengaturan
               <i class="fas fa-angle-left right"></i>
