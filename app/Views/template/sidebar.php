@@ -53,31 +53,41 @@ $data_user = getProfile();
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="<?= base_url('master_kategori'); ?>" class="nav-link <?= ($segment == 'master_kategori') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Kategori Master
-              </p>
-            </a>
-          </li>
 
-          <li class="nav-item">
-            <a href="<?= base_url('transaksi_kategori_sub'); ?>" class="nav-link <?= ($segment == 'transaksi_kategori_sub') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-list"></i>
+          <li class="nav-item  <?= ($segment == 'master_kategori' || $segment == 'transaksi_kategori_sub' || $segment == 'jenis_transaksi') ? 'menu-open' : ''; ?>">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
               <p>
-                Kategori Transaksi
+                Pengaturan
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<?= base_url('jenis_transaksi'); ?>" class="nav-link <?= ($segment == 'jenis_transaksi') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Jenis Transaksi
-              </p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('master_kategori'); ?>" class="nav-link <?= ($segment == 'master_kategori') ? 'active' : ''; ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Kategori Master
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('transaksi_kategori_sub'); ?>" class="nav-link <?= ($segment == 'transaksi_kategori_sub') ? 'active' : ''; ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Kategori Transaksi
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('jenis_transaksi'); ?>" class="nav-link <?= ($segment == 'jenis_transaksi') ? 'active' : ''; ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Item Transaksi
+                  </p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <li class="nav-item">
@@ -100,7 +110,7 @@ $data_user = getProfile();
 
           <li class="nav-item">
             <a href="<?= base_url('transaksi'); ?>" class="nav-link <?= ($segment == 'transaksi') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-list"></i>
+              <i class="nav-icon fas fa-hand-holding-usd"></i>
               <p>
                 Transaksi
               </p>
@@ -112,7 +122,7 @@ $data_user = getProfile();
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user-cog"></i>
             <p>
-              Pengaturan
+              Pengaturan Akun
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
