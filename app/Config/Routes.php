@@ -38,6 +38,10 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
   $routes->resource('siswa', ['controller' => '\App\Controllers\Siswa']);
 
   $routes->group('transaksi', function ($routes) {
+    $routes->get('set_item', 'Transaksi::set_item');
+    $routes->get('get_item', 'Transaksi::get_item');
+    $routes->get('delete_item', 'Transaksi::delete_item');
+
     $routes->get('ajax_list_aktor', 'Transaksi::ajax_list_aktor');
     $routes->get('ajax_aktor', 'Transaksi::ajax_aktor');
     $routes->get('ajax_kategori_sub', 'Transaksi::ajax_kategori_sub');

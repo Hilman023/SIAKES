@@ -21,6 +21,7 @@ class Transaksi extends BaseController
     private $link = 'transaksi';
     private $view = 'transaksi';
     private $title = 'Transaksi';
+    private $key_cart = 'transaksi_detail';
     public function __construct()
     {
         $this->model = new \App\Models\TransaksiModel();
@@ -209,5 +210,63 @@ class Transaksi extends BaseController
         }
 
         return redirect()->to($this->link);
+    }
+
+
+    // 
+    public function set_item()
+    {
+        $item = htmlspecialchars($this->request->getVar('item'));
+        $qty = htmlspecialchars($this->request->getVar('qty'));
+        $harga = htmlspecialchars($this->request->getVar('harga'));
+        $subtotal = htmlspecialchars($this->request->getVar('subtotal'));
+        $keterangan = htmlspecialchars($this->request->getVar('keterangan'));
+
+        $data = [
+            'item' => $item,
+            'qty' => $qty,
+            'harga' => $harga,
+            'subtotal' => $subtotal,
+            'keterangan' => $keterangan,
+        ];
+
+        $result  = setCart($this->key_cart, $data);
+        $data = [
+            'success' => true,
+            'data' => $result
+        ];
+        return json_encode($data);
+    }
+
+    public function get_item()
+    {
+        $id = htmlspecialchars($this->request->getVar('id'));
+        $id = ($id) ? $id : null;
+        $result = getCart($this->key_cart, $id);
+        $data = [
+            'success' => true,
+            'data' => $result
+        ];
+
+        return json_encode($data);
+    }
+
+    public function delete_item()
+    {
+        $id = htmlspecialchars($this->request->getVar('id'));
+        $result = deleteCart($this->key_cart, $id);
+        if ($result) {
+            $data = [
+                'success' => true,
+                'data' => $result
+            ];
+        } else {
+            $data = [
+                'success' => false,
+                'message' => 'Not Valid'
+            ];
+        }
+
+        return json_encode($data);
     }
 }

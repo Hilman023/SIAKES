@@ -131,3 +131,67 @@ function initAlert()
   
   ";
 }
+
+
+// helper cart
+function setCart($key, $data = [])
+{
+  session()->start();
+  $get_data = session()->get($key);
+  $get_data = ($get_data) ? $get_data : [];
+  $new_data = $data;
+  $new_data['id'] = time();
+  $get_data[] = $new_data;
+  return session()->set($key, $get_data);
+}
+
+
+function getCart($key, $id = null)
+{
+  $get_data = session()->get($key);
+  $get_data = ($get_data) ? $get_data : [];
+
+  if ($id == null) {
+    return $get_data;
+  } else {
+    foreach ($get_data as $d) {
+      if ($d['id'] == $id) {
+        return $d;
+      }
+    }
+  }
+}
+
+function updateCart($key, $id, $data = [])
+{
+  $get_data = session()->get($key);
+  $get_data = ($get_data) ? $get_data : [];
+
+  $new_data = [];
+  foreach ($get_data as $d) {
+    if ($d['id'] == $id) {
+      $new_data_update = $data;
+      $new_data_update['id'] = $id;
+      $new_data[] = $new_data_update;
+    } else {
+      $new_data[] = $d;
+    }
+  }
+  session()->set($key, $new_data);
+  return true;
+}
+
+function deleteCart($key, $id)
+{
+  $get_data = session()->get($key);
+  $get_data = ($get_data) ? $get_data : [];
+
+  $new_data = [];
+  foreach ($get_data as $d) {
+    if ($d['id'] != $id) {
+      $new_data[] = $d;
+    }
+  }
+  session()->set($key, $new_data);
+  return true;
+}

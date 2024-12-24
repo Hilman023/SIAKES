@@ -199,18 +199,8 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>SPP</td>
-                    <td>1</td>
-                    <td>60000</td>
-                    <td>60000</td>
-                    <td>SPP</td>
-                    <td>
-                      <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                  </tr>
+                <tbody id="res-item">
+
                 </tbody>
               </table>
             </div>
@@ -430,6 +420,88 @@
     var harga = parseFloat($('#harga').val());
     var qty = parseFloat($('#qty').val());
     $('#subtotal').val(harga * qty);
+  }
+
+  $('#add').on('click', function() {
+    var item = $('#item').val();
+    var qty = $('#qty').val();
+    var harga = $('#harga').val();
+    var keterangan = $('#keterangan').val();
+    var subtotal = $('#subtotal').val();
+
+    $.ajax({
+      url: '<?= base_url($link); ?>/set_item',
+      method: 'GET', // POST
+      data: {
+        item: item,
+        qty: qty,
+        harga: harga,
+        keterangan: keterangan,
+        subtotal: subtotal,
+      },
+      dataType: 'json', // json
+      success: function(data) {
+        if (data.success !== false) {
+          resetDetail();
+          getItem();
+        }
+      }
+    });
+  })
+
+  getItem();
+
+  function getItem() {
+    $.ajax({
+      url: '<?= base_url($link); ?>/get_item',
+      method: 'GET', // POST
+      data: {
+        // id: id
+      },
+      dataType: 'json', // json
+      success: function(data) {
+        if (data.success !== false) {
+          var list = '';
+          var array = data.data;
+          var total_nominal = 0;
+          for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            total_nominal += parseFloat(element.subtotal);
+            list += `<tr>
+              <td>` + (index + 1) + `</td>
+              <td>` + element.item + `</td>
+              <td>` + element.qty + `</td>
+              <td>` + element.harga + `</td>
+              <td>` + element.subtotal + `</td>
+              <td>` + element.keterangan + `</td>
+              <td><button type="button" onclick="deleteItem(` + element.id + `)" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
+
+              
+            </tr>`
+
+          }
+
+          $('#res-item').html(list);
+          $('#total_nominal').val(total_nominal);
+        }
+      }
+    });
+  }
+
+  function deleteItem(id) {
+    $.ajax({
+      url: '<?= base_url($link); ?>/delete_item',
+      method: 'GET', // POST
+      data: {
+        id: id
+      },
+      dataType: 'json', // json
+      success: function(data) {
+        if (data.success !== false) {
+          getItem();
+        }
+      }
+    });
   }
 </script>
 <?= $this->endSection('script') ?>
