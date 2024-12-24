@@ -21,7 +21,12 @@ class Pembayaran extends BaseController
 
     public function index()
     {
-        //
+        $data = [
+            'title' => $this->title,
+            'link' => $this->link,
+        ];
+
+        return view($this->view . '/index', $data);
     }
 
     public function new()
@@ -53,7 +58,5 @@ class Pembayaran extends BaseController
     function create()
     {
         dd($_POST);
-
-        
     }
 }

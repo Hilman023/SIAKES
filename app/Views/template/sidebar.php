@@ -100,9 +100,18 @@ $data_user = getProfile();
 
           <li class="nav-item">
             <a href="<?= base_url('transaksi'); ?>" class="nav-link <?= ($segment == 'transaksi') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-list"></i>
+              <i class="nav-icon fas fa-hand-holding-usd"></i>
               <p>
                 Transaksi
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= base_url('pembayaran'); ?>" class="nav-link <?= ($segment == 'pembayaran') ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-money-bill"></i>
+              <p>
+                Pembayaran
               </p>
             </a>
           </li>
