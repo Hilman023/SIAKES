@@ -195,7 +195,36 @@ class Transaksi extends BaseController
             return redirect()->back()->withInput();
         }
 
-        $no_transaksi = time();
+        // $no_transaksi = time();
+
+        // $last_no_transaksi = $this->model->limit(1)->orderBy('id', 'DESC')->first();
+
+        $id_kategori = $this->modeltransakskategorisub->find($this->request->getVar('id_kategori_sub'))['id_kategori'];
+
+        $last_no_transaksi = $this->model->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->where('id_kategori', $id_kategori)->limit(1)->orderBy('tb_transaksi.id', 'DESC')->first();
+        if ($id_kategori == 1) {
+            $label = 'D';
+        } else if ($id_kategori == 2) {
+            $label = 'K';
+        }
+
+        $def_no_transaksi = $label . '.24/12/2024/000';;
+
+        if ($last_no_transaksi) {
+            $last_no_transaksi = $last_no_transaksi['no_transaksi'];
+            $last_no_transaksi = $label . substr($last_no_transaksi, 1, strlen($def_no_transaksi));
+        } else {
+            $last_no_transaksi = $def_no_transaksi;
+        }
+
+        $no_transaksi = autonumberDate($last_no_transaksi, 2, 3);
+
+        $total_nominal = 0;
+
+        $item_detail = getCart($this->key_cart);
+        foreach ($item_detail as $d) {
+            $total_nominal += intval($d['subtotal']);
+        }
 
         $data = [
             'id_aktor' => htmlspecialchars($this->request->getVar('id_aktor')),
@@ -203,13 +232,15 @@ class Transaksi extends BaseController
             'id_kategori_sub' => htmlspecialchars($this->request->getVar('id_kategori_sub')),
             'no_transaksi' => $no_transaksi,
             'tanggal_transaksi' => date('Y-m-d H:i:s'),
+            'total_nominal' => $total_nominal,
+            'bayar_nominal' => 0,
+            'sisa_nominal' => $total_nominal,
         ];
 
         $res = $this->model->save($data);
 
         $id_transaksi = $this->model->limit(1)->orderBy('id', 'DESC')->first()['id'];
-        $item_detail = getCart($this->key_cart);
-        $total_nominal = 0;
+
         foreach ($item_detail as $d) {
             $data_detail = [
                 'id_transaksi' => $id_transaksi,
@@ -220,18 +251,11 @@ class Transaksi extends BaseController
                 'keterangan' => $d['keterangan'],
             ];
 
-            $total_nominal += intval($d['subtotal']);
+
             $this->modeltransaksidetail->insert($data_detail);
         }
 
-        // update nominal
-        $data = [
-            'total_nominal' => $total_nominal,
-            'bayar_nominal' => 0,
-            'sisa_nominal' => $total_nominal,
-        ];
-
-        $this->model->update($id_transaksi, $data);
+        session()->remove($this->key_cart);
 
         if ($res) {
             setAlert('success', 'Success', 'Add Success');
