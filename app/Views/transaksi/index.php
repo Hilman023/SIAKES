@@ -37,6 +37,7 @@
                 <tr>
                   <th>No</th>
                   <th>No Transaksi</th>
+                  <th>Kategori</th>
                   <th>Kategori Sub</th>
                   <th>Aktor</th>
                   <th>Jenis Aktor</th>
@@ -54,6 +55,7 @@
                   <tr>
                     <td><?= $a++; ?></td>
                     <td><?= $d['no_transaksi']; ?></td>
+                    <td><?= $d['nama_kategori']; ?></td>
                     <td><?= $d['nama_kategori_sub']; ?></td>
                     <td><?= $d['nama_aktor']; ?></td>
                     <td><?= $d['jenis_aktor']; ?></td>

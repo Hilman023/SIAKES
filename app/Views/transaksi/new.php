@@ -365,6 +365,9 @@
             $('#keterangan').removeAttr('readonly');
 
 
+          } else {
+            $('#harga').attr('readonly', true);
+            $('#keterangan').attr('readonly', true);
           }
 
 

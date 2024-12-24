@@ -13,6 +13,7 @@ class Transaksi extends BaseController
      */
 
     private $model;
+    private $modeltransaksidetail;
     private $modelsiswa;
     private $modelguru;
     private $modeltransakskategori;
@@ -30,6 +31,7 @@ class Transaksi extends BaseController
         $this->modeltransakskategori = new \App\Models\TransaksiKategoriModel();
         $this->modeltransakskategorisub = new \App\Models\TransaksiKategoriSubModel();
         $this->modeljenistransaksi = new \App\Models\JenisTransaksiModel();
+        $this->modeltransaksidetail = new \App\Models\TransaksiDetailModel();
     }
 
     public function index()
@@ -37,7 +39,7 @@ class Transaksi extends BaseController
         $data = [
             'title' => $this->title,
             'link' => $this->link,
-            'data' => $this->model->orderBy('id', 'DESC')->findAll()
+            'data' => $this->model->select("tb_transaksi.*, tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->orderBy('id', 'DESC')->findAll()
         ];
 
         return view($this->view . '/index', $data);
@@ -182,10 +184,9 @@ class Transaksi extends BaseController
     public function create()
     {
         $rules = [
-            'name' => 'required',
-            'password' => 'required|min_length[8]',
-            'email' => 'required|is_unique[users.email]|valid_email',
-            'username' => 'required|is_unique[users.username]',
+            'id_aktor' => 'required',
+            'jenis_aktor' => 'required',
+            'id_kategori_sub' => 'required',
         ];
 
         $input = $this->request->getVar();
@@ -194,15 +195,44 @@ class Transaksi extends BaseController
             return redirect()->back()->withInput();
         }
 
+        $no_transaksi = time();
+
         $data = [
-            'name' => htmlspecialchars($this->request->getVar('name')),
-            'email' => htmlspecialchars($this->request->getVar('email')),
-            'username' => htmlspecialchars($this->request->getVar('username')),
-            'role_id' => htmlspecialchars($this->request->getVar('role_id')),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'id_aktor' => htmlspecialchars($this->request->getVar('id_aktor')),
+            'jenis_aktor' => htmlspecialchars($this->request->getVar('jenis_aktor')),
+            'id_kategori_sub' => htmlspecialchars($this->request->getVar('id_kategori_sub')),
+            'no_transaksi' => $no_transaksi,
+            'tanggal_transaksi' => date('Y-m-d H:i:s'),
         ];
 
         $res = $this->model->save($data);
+
+        $id_transaksi = $this->model->limit(1)->orderBy('id', 'DESC')->first()['id'];
+        $item_detail = getCart($this->key_cart);
+        $total_nominal = 0;
+        foreach ($item_detail as $d) {
+            $data_detail = [
+                'id_transaksi' => $id_transaksi,
+                'item' => $d['item'],
+                'qty' => $d['qty'],
+                'harga' => $d['harga'],
+                'subtotal' => $d['subtotal'],
+                'keterangan' => $d['keterangan'],
+            ];
+
+            $total_nominal += intval($d['subtotal']);
+            $this->modeltransaksidetail->insert($data_detail);
+        }
+
+        // update nominal
+        $data = [
+            'total_nominal' => $total_nominal,
+            'bayar_nominal' => 0,
+            'sisa_nominal' => $total_nominal,
+        ];
+
+        $this->model->update($id_transaksi, $data);
+
         if ($res) {
             setAlert('success', 'Success', 'Add Success');
         } else {
