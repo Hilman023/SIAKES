@@ -62,4 +62,6 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
     $routes->get('new', 'Pembayaran::new');
     $routes->post('', 'Pembayaran::create');
   });
+
+  $routes->get('rekap_keuangan', 'RekapKeuangan::index');
 });

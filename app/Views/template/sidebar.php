@@ -126,6 +126,15 @@ $data_user = getProfile();
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="<?= base_url('rekap_keuangan'); ?>" class="nav-link <?= ($segment == 'rekap_keuangan') ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-hand-holding-usd"></i>
+              <p>
+                Rekap Keuangan
+              </p>
+            </a>
+          </li>
+
         <?php endif; ?>
         <li class="nav-item  <?= ($segment == 'profile' || $segment == 'change-password') ? 'menu-open' : ''; ?>">
           <a href="#" class="nav-link">
