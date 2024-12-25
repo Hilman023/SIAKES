@@ -86,8 +86,10 @@
           <a href="#" class="small-box-footer"></a>
         </div>
       </div>
+      
       <!-- ./col -->
     </div>
+
     <!-- /.row -->
     <div class="calendar-container">
       <header class="calendar-header">
@@ -99,7 +101,6 @@
           </span>
         </div>
       </header>
-
       <div class=" calendar-body">
         <ul class="calendar-weekdays">
           <li>Min</li>
