@@ -86,8 +86,10 @@
           <a href="#" class="small-box-footer"></a>
         </div>
       </div>
+
       <!-- ./col -->
     </div>
+
     <!-- /.row -->
     <div class="row">
       <div class="col-md-6 mb-2">
