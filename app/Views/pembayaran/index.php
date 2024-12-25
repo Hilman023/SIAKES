@@ -43,6 +43,7 @@
                   <th>Nama Aktor</th>
                   <th>Jenis Aktor</th>
                   <th>Tanggal Pembayaran</th>
+                  <th>Method</th>
                   <th>Bayar Nominal</th>
                   <th>Action</th>
                 </tr>
@@ -59,7 +60,8 @@
                     <td><?= $d['nama_aktor']; ?></td>
                     <td><?= $d['jenis_aktor']; ?></td>
                     <td><?= $d['tanggal_pembayaran']; ?></td>
-                    <td><?= $d['bayar_nominal']; ?></td>
+                    <td><?= $d['method']; ?></td>
+                    <td><?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
                     <td>
                       <a class="btn btn-success btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . ''); ?>"><i class="far fa-eye"></i></a>
                     </td>

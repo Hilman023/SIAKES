@@ -14,6 +14,7 @@ class Transaksi extends BaseController
 
     private $model;
     private $modeltransaksidetail;
+    private $modelpembayaran;
     private $modelsiswa;
     private $modelguru;
     private $modeltransakskategori;
@@ -32,6 +33,7 @@ class Transaksi extends BaseController
         $this->modeltransakskategorisub = new \App\Models\TransaksiKategoriSubModel();
         $this->modeljenistransaksi = new \App\Models\JenisTransaksiModel();
         $this->modeltransaksidetail = new \App\Models\TransaksiDetailModel();
+        $this->modelpembayaran = new \App\Models\PembayaranModel();
     }
 
     public function index()
@@ -208,7 +210,7 @@ class Transaksi extends BaseController
             $label = 'K';
         }
 
-        $def_no_transaksi = $label . '.24/12/2024/000';;
+        $def_no_transaksi = $label . '.24/12/2024/001';
 
         if ($last_no_transaksi) {
             $last_no_transaksi = $last_no_transaksi['no_transaksi'];
@@ -322,6 +324,25 @@ class Transaksi extends BaseController
         }
 
         return json_encode($data);
+    }
+
+    public function show($id)
+    {
+        $result = $this->model->select("tb_transaksi.*, tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->find($id);
+        if (!$result) {
+            setAlert('warning', 'Warning', 'NOT VALID');
+            return redirect()->to($this->link);
+        }
+
+        $data = [
+            'title' => $this->title,
+            'link' => $this->link,
+            'data' => $result,
+            'detail' => $this->modeltransaksidetail->where('id_transaksi', $id)->findAll(),
+            'pembayaran' => $this->modelpembayaran->where('id_transaksi', $id)->findAll(),
+        ];
+
+        return view($this->view . '/show', $data);
     }
 
     public function delete($id = null)

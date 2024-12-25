@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Kelola <?= $title; ?></h1>
+        <h1 class="m-0"><?= $title; ?></h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item">Kelola <?= $title; ?></li>
+          <li class="breadcrumb-item"><?= $title; ?></li>
         </ol>
       </div>
       <!-- /.col -->
@@ -29,7 +29,7 @@
         <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
         <div class="card">
           <div class="card-header">
-            Kelola <?= $title; ?>
+            <?= $title; ?>
           </div>
           <div class="card-body table-responsive">
             <table class="table" id="table2">
@@ -60,16 +60,17 @@
                     <td><?= $d['nama_aktor']; ?></td>
                     <td><?= $d['jenis_aktor']; ?></td>
                     <td><?= $d['tanggal_transaksi']; ?></td>
-                    <td><?= $d['total_nominal']; ?></td>
-                    <td><?= $d['bayar_nominal']; ?></td>
-                    <td><?= $d['sisa_nominal']; ?></td>
+                    <td><?= number_format($d['total_nominal'], 0, ',', '.'); ?></td>
+                    <td><?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
+                    <td><?= number_format($d['sisa_nominal'], 0, ',', '.'); ?></td>
                     <td><?= $d['status']; ?></td>
                     <td>
+                      <a href="<?= base_url($link . '/' . $d['id']); ?>" class="btn btn-success mb-2 btn-sm"><i class="fas fa-eye"></i></a>
                       <?php if ($d['status'] != 'Paid'): ?>
 
                         <a class="btn btn-info btn-sm mb-2" target="_blank" href="<?= base_url('pembayaran/new?id=' . $d['id']); ?>"><i class="fas fa-paper-plane"></i></a>
                       <?php else: ?>
-                        -
+
                       <?php endif; ?>
                       <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                         <?= csrf_field(); ?>

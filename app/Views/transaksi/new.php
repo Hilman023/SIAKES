@@ -11,7 +11,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item">Kelola <?= $title; ?></li>
+          <li class="breadcrumb-item"><?= $title; ?></li>
           <li class="breadcrumb-item active">New</li>
         </ol>
       </div>
