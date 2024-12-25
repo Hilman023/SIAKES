@@ -258,9 +258,9 @@ class Transaksi extends BaseController
         session()->remove($this->key_cart);
 
         if ($res) {
-            setAlert('success', 'Success', 'Add Success');
+            setAlert('success', 'Success', 'Transaksi Success');
         } else {
-            setAlert('warning', 'Warning', 'Add Failed');
+            setAlert('warning', 'Warning', 'Transaksi Failed');
         }
 
         return redirect()->to($this->link);

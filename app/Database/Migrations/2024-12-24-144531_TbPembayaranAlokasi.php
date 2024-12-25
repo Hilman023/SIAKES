@@ -25,9 +25,6 @@ class TbPembayaranAlokasi extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
             ],
-            'harga' => [
-                'type'           => 'FLOAT',
-            ],
             'alokasi_nominal' => [
                 'type'           => 'FLOAT',
             ],

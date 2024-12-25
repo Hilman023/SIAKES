@@ -49,7 +49,7 @@
 
                             <div class="form-group">
                                 <label for="method">Method</label>
-                                <select class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" name="method" id="method">
+                                <select class="form-control <?= ($error = validation_show_error('method')) ? 'border-danger' : ''; ?>" name="method" id="method">
                                     <?php foreach ($method as $d): ?>
 
                                         <option><?= $d; ?></option>
@@ -58,10 +58,14 @@
                             </div>
                             <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
+                            <div class="form-group">
+                                <label for="tagihan">Tagihan</label>
+                                <input type="number" readonly id="tagihan" name="bayar_nomnial" class="form-control">
+                            </div>
 
                             <div class="form-group">
                                 <label for="bayar_nominal">Bayar</label>
-                                <input type="number" id="bayar_nominal" name="bayar_nomnial" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>">
+                                <input type="number" id="bayar_nominal" name="bayar_nominal" class="form-control <?= ($error = validation_show_error('bayar_nominal')) ? 'border-danger' : ''; ?>">
                             </div>
                             <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
@@ -82,10 +86,10 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Item</th>
-                                        <th>Qty</th>
-                                        <th>Harga</th>
-                                        <th>Sub Total</th>
                                         <th>Keterangan</th>
+                                        <th>Qty</th>
+                                        <th>Sub Total</th>
+                                        <th>Bayar</th>
                                         <th>Alokasi</th>
                                     </tr>
                                 </thead>
@@ -128,23 +132,25 @@
             success: function(data) {
                 if (data.success !== false) {
                     var list = '';
-                    var array = data.data;
+                    var array = data.data.detail;
                     for (let index = 0; index < array.length; index++) {
                         const element = array[index];
                         list += `<tr>
                                     <td>` + (index + 1) + `</td>
                                     <td>` + element.item + `</td>
-                                    <td>` + element.qty + `</td>
-                                    <td>` + element.harga + `</td>
-                                    <td>` + element.subtotal + `</td>
                                     <td>` + element.keterangan + `</td>
+                                    <td>` + element.qty + `</td>
+                                    <td>` + element.subtotal + `</td>
+                                    <td class="bayar">` + element.bayar_nominal + `</td>
                                     <td>
                                         <input type="hidden" name="id_detail[]" value="` + element.id + `">
-                                        <input type="number" name="alokasi[]" class="form-control">
+                                        <input type="number" name="alokasi[]" class="form-control" value="0">
                                     </td>
                                 </tr>`;
 
                     }
+
+                    $('#tagihan').val(data.data.transaksi.sisa_nominal);
 
                     $('#res-item').html(list);
                 }

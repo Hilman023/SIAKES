@@ -34,6 +34,12 @@ class TbTransaksiDetail extends Migration
             'subtotal' => [
                 'type'           => 'FLOAT',
             ],
+            'bayar_nominal' => [
+                'type'           => 'FLOAT',
+            ],
+            'sisa_nominal' => [
+                'type'           => 'FLOAT',
+            ],
             'keterangan' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '256',

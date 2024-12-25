@@ -19,6 +19,8 @@ class TransaksiDetailModel extends BaseModel
     'qty',
     'harga',
     'subtotal',
+    'bayar_nominal',
+    'sisa_nominal',
     'keterangan',
   ];
 
