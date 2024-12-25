@@ -33,13 +33,25 @@
 
                             <?= csrf_field(); ?>
 
+                            <?php
+
+                            $request = \Config\Services::request();
+                            $custom_id = $request->getVar('id');
+
+                            ?>
 
                             <div class="form-group">
                                 <label for="id_transaksi">Transaksi</label>
                                 <select class="form-control <?= ($error = validation_show_error('id_transaksi')) ? 'border-danger' : ''; ?>" name="id_transaksi" id="id_transaksi">
                                     <option disabled selected>== SELECT ==</option>
                                     <?php foreach ($transaksi as $d): ?>
-                                        <option value="<?= $d['id']; ?>"><?= $d['no_transaksi']; ?> - <?= $d['nama_aktor']; ?></option>
+                                        <?php if ($custom_id == $d['id']): ?>
+
+                                            <option selected value="<?= $d['id']; ?>"><?= $d['no_transaksi']; ?> - <?= $d['nama_aktor']; ?></option>
+                                        <?php else: ?>
+                                            <option value="<?= $d['id']; ?>"><?= $d['no_transaksi']; ?> - <?= $d['nama_aktor']; ?></option>
+
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -60,7 +72,7 @@
 
                             <div class="form-group">
                                 <label for="tagihan">Tagihan</label>
-                                <input type="number" readonly id="tagihan" name="bayar_nomnial" class="form-control">
+                                <input type="number" readonly id="tagihan" name="tagihan" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -69,7 +81,10 @@
                             </div>
                             <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
-
+                            <div class="form-group">
+                                <label for="kembalian">Kembalian</label>
+                                <input type="number" readonly id="kembalian" name="kembalian" class="form-control">
+                            </div>
 
 
 
@@ -99,8 +114,13 @@
                             </table>
 
 
+                            <div class="row mt-4">
+                                <div class="col">
 
-                            <button type="submit" id="add" class="btn btn-primary mt-4"><i class="fas fa-check"></i> Bayar</button>
+                                    <button type="submit" id="add" class="btn btn-primary "><i class="fas fa-check"></i> Bayar</button>
+                                    <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
+                                </div>
+                            </div>
 
 
 
@@ -120,8 +140,15 @@
 <?= $this->section('script') ?>
 
 <script>
-    $('#id_transaksi').on('change', function() {
-        var id_transaksi = $(this).val();
+    $('#id_transaksi').on('change', setDetail)
+
+    <?php if ($custom_id): ?>
+        setDetail();
+
+    <?php endif; ?>
+
+    function setDetail() {
+        var id_transaksi = $('#id_transaksi').val();
         $.ajax({
             url: '<?= base_url($link); ?>/ajax_transaksi_detail',
             method: 'GET', // POST
@@ -156,6 +183,6 @@
                 }
             }
         });
-    })
+    }
 </script>
 <?= $this->endSection('script') ?>

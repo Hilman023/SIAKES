@@ -65,7 +65,12 @@
                     <td><?= $d['sisa_nominal']; ?></td>
                     <td><?= $d['status']; ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
+                      <?php if ($d['status'] != 'Paid'): ?>
+
+                        <a class="btn btn-info btn-sm mb-2" target="_blank" href="<?= base_url('pembayaran/new?id=' . $d['id']); ?>"><i class="fas fa-paper-plane"></i></a>
+                      <?php else: ?>
+                        -
+                      <?php endif; ?>
                       <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
                         <?= csrf_field(); ?>
                         <input type='hidden' name='_method' value='DELETE' />

@@ -50,6 +50,7 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
     $routes->get('', 'Transaksi::index');
     $routes->get('new', 'Transaksi::new');
     $routes->post('', 'Transaksi::create');
+    $routes->delete('(:any)', 'Transaksi::delete/$1');
   });
 
   $routes->group('pembayaran', function ($routes) {

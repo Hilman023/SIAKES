@@ -323,4 +323,27 @@ class Transaksi extends BaseController
 
         return json_encode($data);
     }
+
+    public function delete($id = null)
+    {
+        $result = $this->model->find($id);
+        if (!$result) {
+            setAlert('warning', 'Warning', 'NOT VALID');
+            return redirect()->to($this->link);
+        }
+
+        if ($result['status'] == 'Paid') {
+            setAlert('warning', 'Warning', 'Sudah lunas, gak bisa di lenyapkan bukti nya ^_^');
+            return redirect()->to($this->link);
+        }
+
+        $res = $this->model->delete($id);
+        if ($res) {
+            setAlert('success', 'Success', 'Delete Success');
+        } else {
+            setAlert('warning', 'Warning', 'Delete Failed');
+        }
+
+        return redirect()->to($this->link);
+    }
 }
