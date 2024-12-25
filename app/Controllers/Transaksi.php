@@ -168,6 +168,7 @@ class Transaksi extends BaseController
      */
     public function new()
     {
+        session()->remove($this->key_cart);
         $data = [
             'title' => $this->title,
             'link' => $this->link,
@@ -343,6 +344,92 @@ class Transaksi extends BaseController
         ];
 
         return view($this->view . '/show', $data);
+    }
+
+    public function edit($id)
+    {
+        $result = $this->model->select("tb_transaksi.*, tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->find($id);
+
+        if (!$result) {
+            setAlert('warning', 'Warning', 'NOT VALID');
+            return redirect()->to($this->link);
+        }
+
+        $detail = $this->modeltransaksidetail->where('id_transaksi', $id)->findAll();
+
+        session()->remove($this->key_cart);
+        foreach ($detail as $d) {
+            $data = [
+                'item' => $d['item'],
+                'qty' => $d['qty'],
+                'harga' => $d['harga'],
+                'subtotal' => $d['subtotal'],
+                'keterangan' => $d['keterangan'],
+            ];
+
+            setCart($this->key_cart, $data);
+        }
+
+        $data = [
+            'title' => $this->title,
+            'link' => $this->link,
+            'data' => $result,
+            'jenis_aktor' => $this->model->jenis_aktor,
+            'kategori' => $this->modeltransakskategori->findAll(),
+        ];
+
+        return view($this->view . '/edit', $data);
+    }
+
+    public function update($id)
+    {
+        $result = $this->model->find($id);
+        if (!$result) {
+            setAlert('warning', 'Warning', 'NOT VALID');
+            return redirect()->to($this->link);
+        }
+
+        $total_nominal = 0;
+        $item_detail = getCart($this->key_cart);
+        foreach ($item_detail as $d) {
+            $total_nominal += intval($d['subtotal']);
+        }
+
+        $data = [
+            'total_nominal' => $total_nominal,
+            'bayar_nominal' => 0,
+            'sisa_nominal' => $total_nominal,
+        ];
+
+        $res = $this->model->update($id, $data);
+
+        $id_transaksi = $id;
+
+        $this->modeltransaksidetail->where('id_transaksi', $id_transaksi)->delete();
+
+        foreach ($item_detail as $d) {
+            $data_detail = [
+                'id_transaksi' => $id_transaksi,
+                'item' => $d['item'],
+                'qty' => $d['qty'],
+                'harga' => $d['harga'],
+                'subtotal' => $d['subtotal'],
+                'keterangan' => $d['keterangan'],
+            ];
+
+
+            $this->modeltransaksidetail->insert($data_detail);
+        }
+
+        session()->remove($this->key_cart);
+
+        if ($res) {
+            setAlert('success', 'Success', 'Edit Success');
+        } else {
+            setAlert('warning', 'Warning', 'Edit Failed');
+        }
+
+        return redirect()->to($this->link);
     }
 
     public function delete($id = null)
