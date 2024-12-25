@@ -31,7 +31,7 @@
             <p>Penerimaan bulan ini</p>
             <!-- data yang ditampilkan dari total jumlah pemasukan perbulan -->
             <font size="5">Rp. </font>
-            <font size="6"><b>1.000.000</b></font>
+            <font size="6"><b><?= number_format($pemasukan, 0, ',', '.'); ?></b></font>
           </div>
           <div class="icon">
             <i class="fas fa-download"></i>
@@ -47,7 +47,7 @@
             <p>Pengeluaran bulan ini</p>
             <!-- data yang ditampilkan dari total jumlah pengeluaran perbulan -->
             <font size="5">Rp. </font>
-            <font size="6"><b>100.000</b></font>
+            <font size="6"><b><?= number_format($pengeluaran, 0, ',', '.'); ?></b></font>
           </div>
           <div class="icon">
             <i class="fas fa-upload"></i>
@@ -63,7 +63,7 @@
             <p>Saldo Kas</p>
             <!-- data yang ditampilkan dari total sisa jumlah uang -->
             <font size="5">Rp. </font>
-            <font size="6"><b>900.000</b></font>
+            <font size="6"><b><?= (count($saldo) > 0) ? number_format($saldo[0]['saldo'], 0, ',', '.') : 0; ?></b></font>
           </div>
           <div class="icon">
             <i class="fas fa-money-bill-wave-alt"></i>
@@ -78,7 +78,7 @@
           <div class="inner">
             <p>Total Siswa</p>
             <!-- data yang ditampilkan dari jumlah crud siswa yang dibuat -->
-            <font size="6"><b>100</b></font>
+            <font size="6"><b><?= $siswa; ?></b></font>
           </div>
           <div class="icon">
             <i class="fas fa-users"></i>
