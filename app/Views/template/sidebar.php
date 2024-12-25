@@ -114,7 +114,7 @@ $data_user = getProfile();
           </li>
 
 
-          <li class="nav-item  <?= ($segment == 'master_kategori' || $segment == 'transaksi_kategori_sub' || $segment == 'jenis_transaksi') ? 'menu-open' : ''; ?>">
+          <li class="nav-item  <?= ($segment == 'master_kategori' || $segment == 'transaksi_kategori_sub' || $segment == 'transaksi_item') ? 'menu-open' : ''; ?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>

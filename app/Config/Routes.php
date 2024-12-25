@@ -64,4 +64,5 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
   });
 
   $routes->get('rekap_keuangan', 'RekapKeuangan::index');
+  $routes->get('laporan_keuangan', 'LaporanKeuangan::index');
 });

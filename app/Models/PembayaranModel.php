@@ -50,7 +50,7 @@ class PembayaranModel extends BaseModel
 
   public $method = [
     'Tunai',
-    'Subsidi A',
-    'Subsidi B', // dana bos
+    // 'Subsidi A',
+    // 'Subsidi B', // dana bos
   ];
 }
