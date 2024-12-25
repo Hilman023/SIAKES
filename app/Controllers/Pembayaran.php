@@ -26,6 +26,7 @@ class Pembayaran extends BaseController
         $data = [
             'title' => $this->title,
             'link' => $this->link,
+            'data' => $this->model->select('tb_pembayaran.*, no_transaksi, jenis_aktor')->select("tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->join('tb_transaksi', 'tb_transaksi.id = tb_pembayaran.id_transaksi')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->orderBy('tb_pembayaran.id', 'DESC')->findAll()
         ];
 
         return view($this->view . '/index', $data);

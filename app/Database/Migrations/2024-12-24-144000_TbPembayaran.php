@@ -24,7 +24,7 @@ class TbPembayaran extends Migration
                 'constraint'     => 20,
                 'unsigned'       => true,
             ],
-            'tanggal_transaksi' => [
+            'tanggal_pembayaran' => [
                 'type'           => 'DATETIME',
                 'null' => true,
             ],

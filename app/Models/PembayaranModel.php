@@ -16,7 +16,7 @@ class PembayaranModel extends BaseModel
   protected $allowedFields    = [
     'no_pembayaran',
     'id_transaksi',
-    'tanggal_bayar',
+    'tanggal_pembayaran',
     'method',
     'bayar_nominal',
   ];

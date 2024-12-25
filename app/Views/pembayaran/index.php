@@ -38,12 +38,33 @@
                   <th>No</th>
                   <th>No Pembayaran</th>
                   <th>No Transaksi</th>
+                  <th>Kategori</th>
+                  <th>Kategori Sub</th>
+                  <th>Nama Aktor</th>
+                  <th>Jenis Aktor</th>
                   <th>Tanggal Pembayaran</th>
                   <th>Bayar Nominal</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
+                <?php $a = 1;
+                foreach ($data as $d): ?>
+                  <tr>
+                    <td><?= $a++; ?></td>
+                    <td><?= $d['no_pembayaran']; ?></td>
+                    <td><?= $d['no_transaksi']; ?></td>
+                    <td><?= $d['nama_kategori']; ?></td>
+                    <td><?= $d['nama_kategori_sub']; ?></td>
+                    <td><?= $d['nama_aktor']; ?></td>
+                    <td><?= $d['jenis_aktor']; ?></td>
+                    <td><?= $d['tanggal_pembayaran']; ?></td>
+                    <td><?= $d['bayar_nominal']; ?></td>
+                    <td>
+                      <a class="btn btn-success btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . ''); ?>"><i class="far fa-eye"></i></a>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
               </tbody>
             </table>
           </div>
