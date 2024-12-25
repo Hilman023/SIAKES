@@ -89,28 +89,32 @@
       <!-- ./col -->
     </div>
     <!-- /.row -->
-    <div class="calendar-container">
-      <header class="calendar-header">
-        <p class="calendar-current-date"></p>
-        <div class="calendar-navigation">
-          <span id="calendar-prev" class="fas fa-chevron-circle-left">
-          </span>
-          <span id="calendar-next" class="fas fa-chevron-circle-right">
-          </span>
-        </div>
-      </header>
+    <div class="row">
+      <div class="col-md-6 mb-2">
+        <div class="calendar-container">
+          <header class="calendar-header">
+            <p class="calendar-current-date"></p>
+            <div class="calendar-navigation">
+              <span id="calendar-prev" class="fas fa-chevron-circle-left">
+              </span>
+              <span id="calendar-next" class="fas fa-chevron-circle-right">
+              </span>
+            </div>
+          </header>
 
-      <div class=" calendar-body">
-        <ul class="calendar-weekdays">
-          <li>Min</li>
-          <li>Sen</li>
-          <li>Sel</li>
-          <li>Rab</li>
-          <li>Kam</li>
-          <li>Jum</li>
-          <li>Sab</li>
-        </ul>
-        <ul class="calendar-dates"></ul>
+          <div class=" calendar-body">
+            <ul class="calendar-weekdays">
+              <li>Min</li>
+              <li>Sen</li>
+              <li>Sel</li>
+              <li>Rab</li>
+              <li>Kam</li>
+              <li>Jum</li>
+              <li>Sab</li>
+            </ul>
+            <ul class="calendar-dates"></ul>
+          </div>
+        </div>
       </div>
     </div>
   </div><!-- /.container-fluid -->

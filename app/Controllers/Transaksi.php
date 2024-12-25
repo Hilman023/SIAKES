@@ -19,7 +19,7 @@ class Transaksi extends BaseController
     private $modelguru;
     private $modeltransakskategori;
     private $modeltransakskategorisub;
-    private $modeljenistransaksi;
+    private $modeltransaksiitem;
     private $link = 'transaksi';
     private $view = 'transaksi';
     private $title = 'Transaksi';
@@ -31,7 +31,7 @@ class Transaksi extends BaseController
         $this->modelguru = new \App\Models\GuruModel();
         $this->modeltransakskategori = new \App\Models\TransaksiKategoriModel();
         $this->modeltransakskategorisub = new \App\Models\TransaksiKategoriSubModel();
-        $this->modeljenistransaksi = new \App\Models\JenisTransaksiModel();
+        $this->modeltransaksiitem = new \App\Models\TransaksiItemModel();
         $this->modeltransaksidetail = new \App\Models\TransaksiDetailModel();
         $this->modelpembayaran = new \App\Models\PembayaranModel();
     }
@@ -123,7 +123,7 @@ class Transaksi extends BaseController
     function ajax_item_transaksi()
     {
         $id = htmlspecialchars($this->request->getVar('id'));
-        $result = $this->modeljenistransaksi->where('id_kategori_sub', $id)->findAll();
+        $result = $this->modeltransaksiitem->where('id_kategori_sub', $id)->findAll();
         if ($result) {
             $is_manual = $this->modeltransakskategorisub->find($id);
             $data = [
@@ -145,7 +145,7 @@ class Transaksi extends BaseController
     function ajax_item()
     {
         $id = htmlspecialchars($this->request->getVar('id'));
-        $result = $this->modeljenistransaksi->select('tb_jenis_transaksi.*, is_manual')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_jenis_transaksi.id_kategori_sub')->where('tb_jenis_transaksi.nama', $id)->first();
+        $result = $this->modeltransaksiitem->select('tb_transaksi_item.*, is_manual')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi_item.id_kategori_sub')->where('tb_transaksi_item.nama', $id)->first();
         if ($result) {
             $data = [
                 'success' => true,

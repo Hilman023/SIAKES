@@ -12,7 +12,7 @@ class All extends Seeder
     $this->call('SeedUsers');
     $this->call('SeedTbMasterKategori');
     $this->call('SeedTbTransaksiKategori');
-    $this->call('SeedTbJenisTransaksi');
+    $this->call('SeedTbTransaksiItem');
     $this->call('SeedTbSiswa');
     $this->call('SeedTbGuru');
   }

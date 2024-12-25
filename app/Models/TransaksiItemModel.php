@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class JenisTransaksiModel extends BaseModel
+class TransaksiItemModel extends BaseModel
 {
   // protected $DBGroup          = 'default';
-  protected $table            = 'tb_jenis_transaksi';
+  protected $table            = 'tb_transaksi_item';
   protected $primaryKey       = 'id';
   protected $useAutoIncrement = true;
   protected $returnType       = 'array';

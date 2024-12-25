@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TbJenisTransaksi extends Migration
+class TbTransaksiItem extends Migration
 {
     public function up()
     {
@@ -40,11 +40,11 @@ class TbJenisTransaksi extends Migration
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('id_kategori_sub', 'tb_transaksi_kategori_sub', 'id');
-        $this->forge->createTable('tb_jenis_transaksi');
+        $this->forge->createTable('tb_transaksi_item');
     }
 
     public function down()
     {
-        $this->forge->dropTable('tb_jenis_transaksi');
+        $this->forge->dropTable('tb_transaksi_item');
     }
 }

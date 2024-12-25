@@ -32,7 +32,7 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
     $routes->resource('tahun', ['controller' => '\App\Controllers\MasterKategoriTahun']);
   });
 
-  $routes->resource('jenis_transaksi', ['controller' => '\App\Controllers\JenisTransaksi']);
+  $routes->resource('transaksi_item', ['controller' => '\App\Controllers\TransaksiItem']);
   $routes->resource('transaksi_kategori_sub', ['controller' => '\App\Controllers\TransaksiKategoriSub']);
   $routes->resource('guru', ['controller' => '\App\Controllers\Guru']);
   $routes->resource('siswa', ['controller' => '\App\Controllers\Siswa']);

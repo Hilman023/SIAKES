@@ -129,6 +129,8 @@
       flex-wrap: wrap;
       display: flex;
       text-align: center;
+      padding: 0;
+      margin: 0;
     }
 
     .calendar-body .calendar-dates {

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
-class JenisTransaksi extends BaseController
+class TransaksiItem extends BaseController
 {
     /**
      * Return an array of resource objects, themselves in array format
@@ -14,13 +14,13 @@ class JenisTransaksi extends BaseController
 
     private $model;
     private $modelkategorisub;
-    private $link = 'jenis_transaksi';
-    private $view = 'jenis_transaksi';
+    private $link = 'transaksi_item';
+    private $view = 'transaksi_item';
     private $title = 'Jenis Transaksi';
 
     public function __construct()
     {
-        $this->model = new \App\Models\JenisTransaksiModel();
+        $this->model = new \App\Models\TransaksiItemModel();
         $this->modelkategorisub = new \App\Models\TransaksiKategoriSubModel();
     }
 
@@ -29,7 +29,7 @@ class JenisTransaksi extends BaseController
         $data = [
             'title' => $this->title,
             'link' => $this->link,
-            'data' => $this->model->select('tb_jenis_transaksi.*, tb_transaksi_kategori_sub.nama as nama_kategori_sub, tb_transaksi_kategori.nama as nama_kategori')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_jenis_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->orderBy('id', 'DESC')->findAll()
+            'data' => $this->model->select('tb_transaksi_item.*, tb_transaksi_kategori_sub.nama as nama_kategori_sub, tb_transaksi_kategori.nama as nama_kategori')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi_item.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->orderBy('id', 'DESC')->findAll()
         ];
 
         return view($this->view . '/index', $data);
