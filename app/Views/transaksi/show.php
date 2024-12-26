@@ -72,13 +72,13 @@
                   <div class="col-md-6 mb-2">
                     <div class="form-group">
                       <label for="nama_kelas">Kelas</label>
-                      <input type="text" readonly id="nama_kelas" name="nama_kelas" class="form-control">
+                      <input type="text" readonly id="nama_kelas" name="nama_kelas" class="form-control" value="<?= $data['nama_kelas']; ?>">
                     </div>
                   </div>
                   <div class="col-md-6 mb-2">
                     <div class="form-group">
                       <label for="nama_jurusan">Jurusan</label>
-                      <input type="text" readonly id="nama_jurusan" name="nama_jurusan" class="form-control">
+                      <input type="text" readonly id="nama_jurusan" name="nama_jurusan" class="form-control" value="<?= $data['nama_jurusan']; ?>">
                     </div>
                   </div>
                 </div>
@@ -88,7 +88,7 @@
                   <div class="col-md-6 mb-2">
                     <div class="form-group">
                       <label for="nama_tahun">Tahun</label>
-                      <input type="text" readonly id="nama_tahun" name="nama_tahun" class="form-control">
+                      <input type="text" readonly id="nama_tahun" name="nama_tahun" class="form-control" value="<?= $data['nama_tahun']; ?>">
                     </div>
 
                   </div>
