@@ -23,7 +23,7 @@ class SeedTbMasterKategori extends Seeder
             ],
 
             [
-                'nama' => '2022/2023',
+                'nama' => '2024/2025',
                 'jenis' => 'tahun',
             ],
             [
@@ -31,20 +31,20 @@ class SeedTbMasterKategori extends Seeder
                 'jenis' => 'tahun',
             ],
             [
-                'nama' => '2024/2025',
+                'nama' => '2022/2023',
                 'jenis' => 'tahun',
             ],
 
             [
-                'nama' => 'tb',
+                'nama' => 'TKRO',
                 'jenis' => 'jurusan',
             ],
             [
-                'nama' => 'tkr',
+                'nama' => 'TKJ',
                 'jenis' => 'jurusan',
             ],
             [
-                'nama' => 'tkj',
+                'nama' => 'TB',
                 'jenis' => 'jurusan',
             ],
 
