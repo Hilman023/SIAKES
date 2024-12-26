@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Kelola <?= $title; ?></h1>
+        <h1 class="m-0"><?= $title; ?></h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item">Kelola <?= $title; ?></li>
+          <li class="breadcrumb-item"><?= $title; ?></li>
         </ol>
       </div>
       <!-- /.col -->
@@ -29,7 +29,7 @@
         <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
         <div class="card">
           <div class="card-header">
-            Kelola <?= $title; ?>
+            <?= $title; ?>
           </div>
           <div class="card-body table-responsive">
             <table class="table" id="table2">

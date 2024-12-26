@@ -65,6 +65,7 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
     $routes->get('ajax_transaksi_detail', 'Pembayaran::ajax_transaksi_detail');
     $routes->get('new', 'Pembayaran::new');
     $routes->post('', 'Pembayaran::create');
+    $routes->get('(:any)', 'Pembayaran::show/$1');
   });
 
   $routes->get('rekap_keuangan', 'RekapKeuangan::index');
