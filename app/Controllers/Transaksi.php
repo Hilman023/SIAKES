@@ -13,6 +13,7 @@ class Transaksi extends BaseController
      */
 
     private $model;
+    private $modeluser;
     private $modeltransaksidetail;
     private $modelpembayaran;
     private $modelsiswa;
@@ -34,6 +35,7 @@ class Transaksi extends BaseController
         $this->modeltransaksiitem = new \App\Models\TransaksiItemModel();
         $this->modeltransaksidetail = new \App\Models\TransaksiDetailModel();
         $this->modelpembayaran = new \App\Models\PembayaranModel();
+        $this->modeluser = new \App\Models\UserModel();
     }
 
     public function index()
@@ -453,5 +455,27 @@ class Transaksi extends BaseController
         }
 
         return redirect()->to($this->link);
+    }
+
+    public function kwitansi($id, $copy = 1)
+    {
+        $result = $this->model->select('tb_transaksi.*, tb_transaksi_kategori_sub.nama as nama_kategori_sub, tb_user.name as nama_user, kelas.nama as nama_kelas, jurusan.nama as nama_jurusan, tahun.nama as nama_tahun')->select("(CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->select("(CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nipd ELSE tb_guru.nik END) as nik")->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->join('tb_user', 'tb_user.id = tb_transaksi.cid', 'LEFT')->join('tb_master_kategori as kelas', 'kelas.id = tb_siswa.id_kelas', 'LEFT')->join('tb_master_kategori as jurusan', 'jurusan.id = tb_siswa.id_jurusan', 'LEFT')->join('tb_master_kategori as tahun', 'tahun.id = tb_siswa.id_tahun', 'LEFT')->find($id);
+        if (!$result) {
+            setAlert('warning', 'Warning', 'NOT VALID');
+            return redirect()->to($this->link);
+        }
+
+
+        $data = [
+            'title' => $this->title,
+            'link' => $this->link,
+            'data' => $result,
+            'copy' => $copy,
+            'detail' => $this->modeltransaksidetail->where('id_transaksi', $id)->findAll(),
+            'pembayaran' => $this->modelpembayaran->where('id_transaksi', $id)->findAll(),
+            'kepala_sekolah' => $this->modeluser->where('role_id', 3)->limit(1)->orderBy('id', 'DESC')->first()
+        ];
+
+        return view($this->view . '/kwitansi', $data);
     }
 }

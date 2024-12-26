@@ -228,6 +228,8 @@
                 </tbody>
               </table>
 
+              <a target="_blank" href="<?= base_url($link . '/kwitansi/' . $data['id']); ?>" class="btn btn-info mt-3"><i class="fas fa-print"></i></a>
+              <a target="_blank" href="<?= base_url($link . '/kwitansi/' . $data['id'] . '/2'); ?>" class="btn btn-info mt-3"><i class="fas fa-print"></i> <span class="badge badge-light">x2</span></a>
               <a href="<?= base_url($link); ?>" class="btn btn-secondary mt-3">Home</a>
             </div>
           </div>

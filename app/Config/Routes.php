@@ -47,6 +47,10 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
     $routes->get('ajax_kategori_sub', 'Transaksi::ajax_kategori_sub');
     $routes->get('ajax_item_transaksi', 'Transaksi::ajax_item_transaksi');
     $routes->get('ajax_item', 'Transaksi::ajax_item');
+
+    $routes->get('kwitansi/(:any)', 'Transaksi::kwitansi/$1');
+    $routes->get('kwitansi/(:any)/(:any)', 'Transaksi::kwitansi/$1/$2');
+
     $routes->get('', 'Transaksi::index');
     $routes->get('new', 'Transaksi::new');
     $routes->post('', 'Transaksi::create');
