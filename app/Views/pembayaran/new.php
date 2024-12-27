@@ -76,6 +76,11 @@
                             </div>
 
                             <div class="form-group">
+                                <button type="button" id="bayar-50" class="btn btn-warning btn-sm">50%</button>
+                                <button type="button" id="bayar-100" class="btn btn-primary btn-sm">100%</button>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="bayar_nominal">Bayar</label>
                                 <input type="number" id="bayar_nominal" name="bayar_nominal" class="form-control <?= ($error = validation_show_error('bayar_nominal')) ? 'border-danger' : ''; ?>">
                             </div>
@@ -96,22 +101,25 @@
                     <div class="card">
                         <div class="card-body">
                             <h5>Detail Transaksi</h5>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Item</th>
-                                        <th>Keterangan</th>
-                                        <th>Qty</th>
-                                        <th>Sub Total</th>
-                                        <th>Bayar</th>
-                                        <th>Alokasi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="res-item">
+                            <div class="table-responsive">
+                                <table class="table w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Item</th>
+                                            <th>Keterangan</th>
+                                            <th>Qty</th>
+                                            <th>Sub Total</th>
+                                            <th>Bayar</th>
+                                            <th>Alokasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="res-item">
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+
+                            </div>
 
 
                             <div class="row mt-4">
@@ -140,14 +148,17 @@
 <?= $this->section('script') ?>
 
 <script>
-    $('#id_transaksi').on('change', setDetail)
+    $('#id_transaksi').on('change', function() {
+        $('#bayar_nominal').val(0);
+        setDetail(0);
+    })
 
     <?php if ($custom_id): ?>
         setDetail();
 
     <?php endif; ?>
 
-    function setDetail() {
+    function setDetail(bayar_nominal = 0) {
         var id_transaksi = $('#id_transaksi').val();
         $.ajax({
             url: '<?= base_url($link); ?>/ajax_transaksi_detail',
@@ -160,8 +171,26 @@
                 if (data.success !== false) {
                     var list = '';
                     var array = data.data.detail;
+                    var alokasi = bayar_nominal;
+                    var bayar = 0;
+                    var bayar_alokasi = 0;
                     for (let index = 0; index < array.length; index++) {
                         const element = array[index];
+
+
+                        done = (parseFloat(element.bayar_nominal) == parseFloat(element.subtotal)) ? true : false;
+
+                        if (!done) {
+                            bayar = (parseFloat(element.bayar_nominal) == 0) ? parseFloat(element.subtotal) : parseFloat(element.bayar_nominal);
+
+                            bayar_alokasi = (bayar >= alokasi) ? alokasi : alokasi - bayar;
+                            // jika yang di bayar lebih sama alokasi yang akan di bayar 
+
+                            alokasi = (bayar >= alokasi) ? ((alokasi == 0) ? 0 : bayar - alokasi) : alokasi - bayar;
+                        }
+
+                        attr_done = (done) ? 'disabled' : '';
+
                         list += `<tr>
                                     <td>` + (index + 1) + `</td>
                                     <td>` + element.item + `</td>
@@ -170,8 +199,8 @@
                                     <td>` + element.subtotal + `</td>
                                     <td class="bayar">` + element.bayar_nominal + `</td>
                                     <td>
-                                        <input type="hidden" name="id_detail[]" value="` + element.id + `">
-                                        <input type="number" name="alokasi[]" class="form-control" value="0">
+                                        <input type="hidden" name="id_detail[]" ` + attr_done + ` value="` + element.id + `">
+                                        <input type="number" name="alokasi[]" ` + attr_done + ` class="form-control" value="` + bayar_alokasi + `">
                                     </td>
                                 </tr>`;
 
@@ -184,5 +213,36 @@
             }
         });
     }
+
+    $('#bayar-50').on('click', function() {
+        var tagihan = $('#tagihan').val();
+        tagihan = parseFloat(tagihan);
+        var bayar = (tagihan / 2);
+
+        $('#bayar_nominal').val(bayar);
+
+        setDetail(bayar);
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'warning',
+            text: 'Gua tau loe bilang nya ke ortu mkh 100%, cuman bayar ke sini 50% sih -_-.'
+        })
+    })
+
+    $('#bayar-100').on('click', function() {
+        var tagihan = $('#tagihan').val();
+        var bayar = (tagihan);
+
+        $('#bayar_nominal').val(bayar);
+
+        setDetail(bayar);
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'warning',
+            text: 'Hayoh sisa 50% lagi, minta lagi ke ortu kan ^_^.'
+        })
+    })
 </script>
 <?= $this->endSection('script') ?>
