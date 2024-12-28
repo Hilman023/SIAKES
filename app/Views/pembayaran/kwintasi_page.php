@@ -22,7 +22,7 @@
                 <td>‎ </td>
             </tr>
             <tr>
-                <td colspan="3" style="border-top: 1px solid;border-bottom: 1px solid;">BUKTI TRANSAKSI <?= strtoupper($data['nama_kategori_sub']); ?></td>
+                <td colspan="3" style="border-top: 1px solid;border-bottom: 1px solid;">BUKTI BAYAR <?= strtoupper($data['nama_kategori_sub']); ?></td>
             </tr>
             <tr>
                 <td>‎ </td>
@@ -30,7 +30,7 @@
             <tr>
                 <td><b>NO</b></td>
                 <td>:</td>
-                <td><?= $data['no_transaksi']; ?></td>
+                <td><?= $data['no_pembayaran']; ?></td>
             </tr>
             <?php if ($data['jenis_aktor'] == 'siswa'): ?>
 
@@ -75,7 +75,7 @@
                 <tr>
                     <td><b>Bulan</b></td>
                     <td>:</td>
-                    <td><?= date('M', strtotime($data['tanggal_transaksi'])); ?></td>
+                    <td><?= date('M', strtotime($data['tanggal_pembayaran'])); ?></td>
                 </tr>
             <?php endif; ?>
             <tr>
@@ -108,87 +108,39 @@
             <tfoot>
                 <tr>
                     <td colspan="3"><b>Nominal</b></td>
-                    <td><b><?= number_format($data['total_nominal'], 0, ',', '.'); ?></b></td>
+                    <td><b><?= number_format($data['bayar_nominal'], 0, ',', '.'); ?></b></td>
                 </tr>
                 <tr>
                     <td><b>Terbilang</b></td>
-                    <td colspan="3" style="text-align: end; text-transform: capitalize;"><b><?= terbilang($data['total_nominal']); ?></b></td>
+                    <td colspan="3" style="text-align: end; text-transform: capitalize;"><b><?= terbilang($data['bayar_nominal']); ?></b></td>
                 </tr>
             </tfoot>
         </table>
     </div>
 </div>
 
-<?php if ($data['jenis_aktor'] == 'siswa'): ?>
-    <div class="flex-container" style="padding-top: 10px;">
-        <div style="margin: auto;text-align:center">
-            <table>
-                <tr>
-                    <td>Kasomalang, <?= date('d M Y', strtotime($data['tanggal_transaksi'])); ?></td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
+<div class="flex-container" style="padding-top: 10px;">
+    <div style="margin: auto;text-align:center">
+        <table>
+            <tr>
+                <td>Kasomalang, <?= date('d M Y', strtotime($data['tanggal_pembayaran'])); ?></td>
+            </tr>
+            <tr>
+                <td>‎ </td>
+            </tr>
+            <tr>
+                <td>‎ </td>
+            </tr>
+            <tr>
+                <td>‎ </td>
+            </tr>
 
-                <tr>
-                    <td>( <?= $data['nama_user']; ?> )</td>
-                </tr>
+            <tr>
+                <td>( <?= $data['nama_user']; ?> )</td>
+            </tr>
 
-            </table>
-        </div>
+        </table>
     </div>
-<?php else: ?>
-
-    <div class="flex-container" style="padding-top: 10px;">
-        <div style="margin: auto;text-align:center">
-            <table>
-                <tr>
-                    <td>Guru Mapel</td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
-
-                <tr>
-                    <td>( <?= $data['nama_aktor']; ?> )</td>
-                </tr>
-
-            </table>
-        </div>
-        <div>
-            <table style="text-align:center">
-                <tr>
-                    <td>Kepala Sekolah</td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
-                <tr>
-                    <td>‎ </td>
-                </tr>
-
-                <tr>
-                    <td>‎ </td>
-                </tr>
-                <tr>
-                    <td>( <?= ($kepala_sekolah) ? $kepala_sekolah['name'] : 'Kepala Sekolah'; ?> )</td>
-                </tr>
-
-            </table>
-        </div>
-    </div>
-<?php endif; ?>
+</div>
 
 <hr>

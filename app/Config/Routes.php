@@ -61,6 +61,10 @@ $routes->group('', ['filter' => '\App\Filters\AuthFilter'], function ($routes) {
   });
 
   $routes->group('pembayaran', function ($routes) {
+
+    $routes->get('kwitansi/(:any)', 'Pembayaran::kwitansi/$1');
+    $routes->get('kwitansi/(:any)/(:any)', 'Pembayaran::kwitansi/$1/$2');
+
     $routes->get('', 'Pembayaran::index');
     $routes->get('ajax_transaksi_detail', 'Pembayaran::ajax_transaksi_detail');
     $routes->get('new', 'Pembayaran::new');
