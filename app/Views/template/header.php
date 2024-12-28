@@ -94,17 +94,17 @@
       display: flex;
     }
 
-    header .calendar-navigation span {
-      height: 38px;
-      width: 38px;
-      margin: 0 1px;
+    .calendar-navigation span {
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
       cursor: pointer;
-      text-align: center;
+      text-align: right;
       line-height: 38px;
       border-radius: 50%;
       user-select: none;
-      color: #aeabab;
-      font-size: 1.9rem;
+      color: #fff;
+      font-size: 1.4rem;
     }
 
     .calendar-navigation span:last-child {
@@ -176,7 +176,7 @@
     }
 
     .calendar-dates li.active::before {
-      background: #6332c5;
+      background: #003FF9;
     }
 
     .calendar-dates li:not(.active):hover::before {

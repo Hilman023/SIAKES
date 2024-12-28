@@ -86,11 +86,63 @@
           <a href="#" class="small-box-footer"></a>
         </div>
       </div>
-
-      <!-- ./col -->
     </div>
 
-    <!-- /.row -->
+    <!-- ./col -->
+    <div class="row">
+      <!-- BAR CHART -->
+      <div class="col-lg-6 col-3">
+        <div class="card bg-white">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="far fa-chart-bar mr-1"></i>
+              Grafik Pemasukan & Pengeluaran
+            </h3>
+          </div>
+          <div class="card-body bg-white">
+            <div class="chart">
+              <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calender -->
+      <div class="col-lg-6 col-3">
+        <div class="card bg-white">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="far fa-calendar-alt mr-1"></i>
+              Kalender
+              <b class="calendar-current-date ml-1"></b>
+              <div class="calendar-navigation">
+                <span id="calendar-prev" class="fas fa-caret-square-left">
+                </span>
+                <span id="calendar-next" class="fas fa-caret-square-right">
+                </span>
+              </div>
+            </h3>
+          </div>
+
+          <div class=" calendar-body">
+            <ul class="calendar-weekdays">
+              <li>Minggu</li>
+              <li>Senin</li>
+              <li>Selasa</li>
+              <li>Rabu</li>
+              <li>Kamis</li>
+              <li>Jumat</li>
+              <li>Sabtu</li>
+            </ul>
+            <ul class="calendar-dates"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- /.row 
     <div class="row">
       <div class="col-md-6 mb-2">
         <div class="calendar-container">
@@ -118,7 +170,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div><!-- /.container-fluid -->
 </section>
 

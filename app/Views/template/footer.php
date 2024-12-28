@@ -13,9 +13,11 @@
 <script src="<?= base_url(); ?>public/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>public/assets/dist/js/adminlte.min.js"></script>
-
+<!-- ChartJS -->
+<script src="<?= base_url(); ?>public/assets/chart.js/Chart.min.js"></script>
+<!-- sweet alert -->
 <script src="<?= base_url(); ?>public/assets/sweetalert2/sweetalert2.all.min.js"></script>
-
+<!-- select2 -->
 <script src="<?= base_url(); ?>public/assets/plugins/select2/js/select2.min.js"></script>
 
 
@@ -166,5 +168,29 @@
   }
 </script>
 
+<script>
+  $(function() {
+        //-------------
+        //- BAR CHART -
+        //-------------
+        var barChartCanvas = $('#barChart').get(0).getContext('2d')
+        var barChartData = $.extend(true, {}, areaChartData)
+        var temp0 = areaChartData.datasets[0]
+        var temp1 = areaChartData.datasets[1]
+        barChartData.datasets[0] = temp1
+        barChartData.datasets[1] = temp0
+
+        var barChartOptions = {
+          responsive: true,
+          maintainAspectRatio: false,
+          datasetFill: false
+        }
+
+        new Chart(barChartCanvas, {
+          type: 'bar',
+          data: barChartData,
+          options: barChartOptions
+        })
+</script>
 
 <?= $this->renderSection('script'); ?>

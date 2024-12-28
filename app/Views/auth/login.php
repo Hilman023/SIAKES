@@ -56,7 +56,7 @@
           </div>
           <div class="col">
             <h1 class="p-0 m-0" style="font-size: 48px;font-weight: 700;color: var(--primary-color)">SIAKES</h1>
-            <p class="p-0 m-0" style="font-size: 20px;font-weight: 400;">SMK Nurul Gina Abidin</p>
+            <p class="p-0 m-0" style="font-size: 24px;font-weight: 400;color:black">SMK Nurul Gina Abidin</p>
           </div>
         </div>
 
