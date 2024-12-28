@@ -94,10 +94,25 @@
       <div class="col-lg-8 col-md-6 col-12">
         <div class="card bg-white">
           <div class="card-header">
-            <h3 class="card-title">
-              <i class="far fa-chart-bar mr-1"></i>
-              Grafik Pemasukan & Pengeluaran
-            </h3>
+            <div class="row">
+              <div class="col">
+                <h3 class="card-title">
+                  <i class="far fa-chart-bar mr-1"></i>
+                  Grafik Pemasukan & Pengeluaran
+                </h3>
+              </div>
+              <div class="col-2">
+                <select name="chart_tahun" id="chart_tahun" class="form-control form-control-sm">
+                  <?php foreach ($chart_tahun as $d): ?>
+                    <?php if ($select_tahun == $d['tahun']): ?>
+                      <option selected><?= $d['tahun']; ?></option>
+                    <?php else: ?>
+                      <option><?= $d['tahun']; ?></option>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="card-body bg-white">
             <div class="chart">
@@ -342,6 +357,11 @@
     document.getElementById('barChart'),
     config
   );
+
+  $('#chart_tahun').on('change', function() {
+    var tahun = $('#chart_tahun').val();
+    window.location.href = '<?= base_url(); ?>dashboard?tahun=' + tahun
+  })
 </script>
 
 <?= $this->endSection('script') ?>
