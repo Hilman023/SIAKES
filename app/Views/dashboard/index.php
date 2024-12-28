@@ -311,13 +311,13 @@
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [{
       label: 'Pemasukan',
-      data: [18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12],
+      data: <?= json_encode($chart_pemasukan); ?>,
       backgroundColor: 'rgb(40,167,69)',
       borderColor: 'rgb(40,167,69)',
       borderWidth: 1
     }, {
       label: 'Pengeluaran',
-      data: [18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12],
+      data: <?= json_encode($chart_pengeluaran); ?>,
       backgroundColor: 'rgb(220,53,69)',
       borderColor: 'rgb(220,53,69)',
       borderWidth: 1
