@@ -91,7 +91,7 @@
     <!-- ./col -->
     <div class="row">
       <!-- BAR CHART -->
-      <div class="col-lg-6 col-3">
+      <div class="col-lg-8 col-md-6 col-12">
         <div class="card bg-white">
           <div class="card-header">
             <h3 class="card-title">
@@ -108,20 +108,29 @@
       </div>
 
       <!-- Calender -->
-      <div class="col-lg-6 col-3">
+      <div class="col-lg-4 col-md-6 col-12">
         <div class="card bg-white">
           <div class="card-header">
-            <h3 class="card-title">
-              <i class="far fa-calendar-alt mr-1"></i>
-              Kalender
-              <b class="calendar-current-date ml-1"></b>
-              <div class="calendar-navigation">
-                <span id="calendar-prev" class="fas fa-caret-square-left">
-                </span>
-                <span id="calendar-next" class="fas fa-caret-square-right">
-                </span>
+            <div class="row justify-content-between">
+              <div class="col-10">
+                <h3 class="card-title">
+                  <i class="far fa-calendar-alt mr-1"></i>
+                  Kalender
+                  <b class="calendar-current-date ml-1"></b>
+                </h3>
+
               </div>
-            </h3>
+              <div class="col">
+                <div class="calendar-navigation">
+                  <span id="calendar-prev" class="fas fa-caret-square-left">
+                  </span>
+                  <span id="calendar-next" class="fas fa-caret-square-right">
+                  </span>
+                </div>
+
+              </div>
+            </div>
+            <!--  -->
           </div>
 
           <div class=" calendar-body">
@@ -299,28 +308,18 @@
 
   // setup 
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [{
-      label: 'Weekly Sales',
-      data: [18, 12, 6, 9, 12, 3, 9],
-      backgroundColor: [
-        'rgba(255, 26, 104, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(0, 0, 0, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255, 26, 104, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(0, 0, 0, 1)'
-      ],
+      label: 'Pemasukan',
+      data: [18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12],
+      backgroundColor: 'rgb(40,167,69)',
+      borderColor: 'rgb(40,167,69)',
+      borderWidth: 1
+    }, {
+      label: 'Pengeluaran',
+      data: [18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12],
+      backgroundColor: 'rgb(220,53,69)',
+      borderColor: 'rgb(220,53,69)',
       borderWidth: 1
     }]
   };

@@ -97,10 +97,10 @@
     .calendar-navigation span {
       height: 10px;
       width: 10px;
-      margin: 0 5px;
+      /* margin: 0 5px; */
       cursor: pointer;
       text-align: right;
-      line-height: 38px;
+      /* line-height: 38px; */
       border-radius: 50%;
       user-select: none;
       color: #fff;
