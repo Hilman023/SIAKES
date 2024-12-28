@@ -213,7 +213,8 @@ class Transaksi extends BaseController
             $label = 'K';
         }
 
-        $def_no_transaksi = $label . '.24/12/2024/001';
+        // $def_no_transaksi = $label . '.24/12/2024/001';
+        $def_no_transaksi = $label . '.' . date('d') . '/' . date('m') . '/' . date('Y') . '/000';
 
         if ($last_no_transaksi) {
             $last_no_transaksi = $last_no_transaksi['no_transaksi'];
