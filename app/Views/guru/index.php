@@ -26,7 +26,11 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-12">
-        <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
+        <?php if (session()->get('role_id') == 1) : ?>
+
+          <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
+
+        <?php endif; ?>
         <div class="card">
           <div class="card-header">
             Kelola <?= $title; ?>
@@ -59,13 +63,16 @@
                     <td><?= $d['email']; ?></td>
                     <td><?= $d['no_hp']; ?></td>
                     <td>
-                      <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
-                      <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
-                        <?= csrf_field(); ?>
-                        <input type='hidden' name='_method' value='DELETE' />
-                        <!-- GET, POST, PUT, PATCH, DELETE-->
-                        <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
-                      </form>
+                      <?php if (session()->get('role_id') == 1) : ?>
+
+                        <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
+                        <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
+                          <?= csrf_field(); ?>
+                          <input type='hidden' name='_method' value='DELETE' />
+                          <!-- GET, POST, PUT, PATCH, DELETE-->
+                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                      <?php endif; ?>
                     </td>
                   </tr>
                 <?php endforeach; ?>
