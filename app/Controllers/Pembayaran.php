@@ -80,6 +80,20 @@ class Pembayaran extends BaseController
 
 
         $no_pembayaran = time();
+        $last_no_pembayaran = $this->model->limit(1)->orderBy('id', 'DESC')->first();
+
+        $label = 'P';
+        // $def_no_pembayaran = $label . '.24/12/2024/001';
+        $def_no_pembayaran =   $label . '.' . date('d') . '/' . date('m') . '/' . date('Y') . '/000';
+
+        if ($last_no_pembayaran) {
+            $last_no_pembayaran = $last_no_pembayaran['no_pembayaran'];
+            $last_no_pembayaran = $label . '.' . substr($last_no_pembayaran, 2, strlen($def_no_pembayaran));
+        } else {
+            $last_no_pembayaran = $def_no_pembayaran;
+        }
+
+        $no_pembayaran = autonumberDate($last_no_pembayaran, 2, 3);
 
         // insert ke pembayaran
         $data = [
