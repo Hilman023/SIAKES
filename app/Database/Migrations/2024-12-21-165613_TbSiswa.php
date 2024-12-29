@@ -59,6 +59,9 @@ class TbSiswa extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('id_kelas', 'tb_master_Kategori', 'id');
+        $this->forge->addForeignKey('id_jurusan', 'tb_master_Kategori', 'id');
+        $this->forge->addForeignKey('id_tahun', 'tb_master_Kategori', 'id');
         $this->forge->createTable('tb_siswa');
     }
 
