@@ -150,13 +150,13 @@
 
           <div class=" calendar-body">
             <ul class="calendar-weekdays">
-              <li>Minggu</li>
-              <li>Senin</li>
-              <li>Selasa</li>
-              <li>Rabu</li>
-              <li>Kamis</li>
-              <li>Jumat</li>
-              <li>Sabtu</li>
+              <li>Min</li>
+              <li>Sen</li>
+              <li>Sel</li>
+              <li>Rab</li>
+              <li>Kam</li>
+              <li>Jum</li>
+              <li>Sab</li>
             </ul>
             <ul class="calendar-dates"></ul>
           </div>
