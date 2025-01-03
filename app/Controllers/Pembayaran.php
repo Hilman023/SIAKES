@@ -99,7 +99,7 @@ class Pembayaran extends BaseController
         $data = [
             'id_transaksi' => htmlspecialchars($this->request->getVar('id_transaksi')),
             'method' => htmlspecialchars($this->request->getVar('method')),
-            'bayar_nominal' => htmlspecialchars($this->request->getVar('bayar_nominal')),
+            'bayar_nominal' => str_replace('.', '', htmlspecialchars($this->request->getVar('bayar_nominal'))),
             'no_pembayaran' => $no_pembayaran,
             'tanggal_pembayaran' => date('Y-m-d H:i:s'),
         ];
@@ -141,7 +141,7 @@ class Pembayaran extends BaseController
             $data_alokasi = [
                 'id_pembayaran' => $id_pembayaran,
                 'id_transaksi_detail' => $d,
-                'alokasi_nominal' => ($alokasi[$index]) ? $alokasi[$index] : 0,
+                'alokasi_nominal' => ($alokasi[$index]) ? str_replace(".", '', $alokasi[$index]) : 0,
             ];
 
             $this->modelpembayaranalokasi->save($data_alokasi);

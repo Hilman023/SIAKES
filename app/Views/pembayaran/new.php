@@ -72,7 +72,7 @@
 
                             <div class="form-group">
                                 <label for="tagihan">Tagihan</label>
-                                <input type="number" readonly id="tagihan" name="tagihan" class="form-control">
+                                <input type="text" readonly id="tagihan" name="tagihan" class="form-control uang">
                             </div>
 
                             <div class="form-group">
@@ -82,7 +82,7 @@
 
                             <div class="form-group">
                                 <label for="bayar_nominal">Bayar</label>
-                                <input type="number" id="bayar_nominal" name="bayar_nominal" class="form-control <?= ($error = validation_show_error('bayar_nominal')) ? 'border-danger' : ''; ?>">
+                                <input type="text" id="bayar_nominal" name="bayar_nominal" class="form-control uang <?= ($error = validation_show_error('bayar_nominal')) ? 'border-danger' : ''; ?>">
                             </div>
                             <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
@@ -196,11 +196,11 @@
                                     <td>` + element.item + `</td>
                                     <td>` + element.keterangan + `</td>
                                     <td>` + element.qty + `</td>
-                                    <td>` + element.subtotal + `</td>
-                                    <td class="bayar">` + element.bayar_nominal + `</td>
+                                    <td  class="uang">` + element.subtotal + `</td>
+                                    <td  class="bayar uang ">` + element.bayar_nominal + `</td>
                                     <td>
                                         <input type="hidden" name="id_detail[]" ` + attr_done + ` value="` + element.id + `">
-                                        <input type="number" name="alokasi[]" ` + attr_done + ` class="form-control" value="` + bayar_alokasi + `">
+                                        <input type="text" name="alokasi[]" ` + attr_done + ` class="form-control uang" value="` + bayar_alokasi + `">
                                     </td>
                                 </tr>`;
 
@@ -209,6 +209,11 @@
                     $('#tagihan').val(data.data.transaksi.sisa_nominal);
 
                     $('#res-item').html(list);
+
+                    setNumeric();
+
+                    $('#tagihan').autoNumeric('set', data.data.transaksi.sisa_nominal);
+
                 }
             }
         });

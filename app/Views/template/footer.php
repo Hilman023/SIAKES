@@ -20,9 +20,28 @@
 <!-- select2 -->
 <script src="<?= base_url(); ?>public/assets/plugins/select2/js/select2.min.js"></script>
 
+<script src="<?= base_url(); ?>public/assets/plugins/autonumeric/autoNumeric.min.js"></script>
+
+
 
 <?= initAlert(); ?>
 <script>
+  // window.onscroll = function() {
+
+  //   // myFunction();
+  // };
+
+  function setNumeric() {
+
+    $('.uang').autoNumeric('init', {
+      aDec: ',',
+      aSep: '.',
+      mDec: '0',
+      vMin: '0.00'
+    });
+  }
+
+
   $.fn.select2.defaults.set("theme", "bootstrap");
 
   $('select.form-control').select2({
