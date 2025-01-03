@@ -128,34 +128,34 @@ $data_user = getProfile();
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <?php if (session()->get('role_id') == 1) : ?>
+
+                <li class="nav-item">
+                  <a href="<?= base_url('master_kategori'); ?>" class="nav-link <?= ($segment == 'master_kategori') ? 'active' : ''; ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Kategori Master
+                    </p>
+                  </a>
+                </li>
+
+              <?php endif; ?>
               <li class="nav-item">
-                <a href="<?= base_url('master_kategori'); ?>" class="nav-link <?= ($segment == 'master_kategori') ? 'active' : ''; ?>">
+                <a href="<?= base_url('transaksi_kategori_sub'); ?>" class="nav-link <?= ($segment == 'transaksi_kategori_sub') ? 'active' : ''; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    Kategori Master
+                    Kategori Transaksi
                   </p>
                 </a>
               </li>
-              <?php if (session()->get('role_id') == 1) : ?>
-
-
-                <li class="nav-item">
-                  <a href="<?= base_url('transaksi_kategori_sub'); ?>" class="nav-link <?= ($segment == 'transaksi_kategori_sub') ? 'active' : ''; ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Kategori Transaksi
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?= base_url('transaksi_item'); ?>" class="nav-link <?= ($segment == 'transaksi_item') ? 'active' : ''; ?>">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Item Transaksi
-                    </p>
-                  </a>
-                </li>
-              <?php endif; ?>
+              <li class="nav-item">
+                <a href="<?= base_url('transaksi_item'); ?>" class="nav-link <?= ($segment == 'transaksi_item') ? 'active' : ''; ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Item Transaksi
+                  </p>
+                </a>
+              </li>
             </ul>
           </li>
 

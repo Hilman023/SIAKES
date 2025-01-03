@@ -4,5 +4,5 @@
 4. nominal isi pada kolom bayar hasil dari total alokasi di detail transaksi
 5. Revisi view kwitansi dan bahasanya
 6. Tambah fitur search, cetak, filter, pagination
-7. role bendahara, mengakses pengaturan (kategori transaksi, item transaksi)
-8. role kepsek, hilangkan kolom action (tabel guru)
+7. role bendahara, mengakses pengaturan (kategori transaksi, item transaksi) ✔
+8. role kepsek, hilangkan kolom action (tabel guru) ✔
