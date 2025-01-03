@@ -1,6 +1,6 @@
 1. Tata bahasa menggunakan bahasa indonesia
 2. Nominal angka keuangan menjadi curency Rupiah & Separartor. Contoh 1000 menjadi Rp. 1.000
-3. View Transaksi / pembayaran dibuat lebih panjang agar tidak terpotong
+3. View Transaksi / pembayaran dibuat lebih panjang agar tidak terpotong ✔
 4. nominal isi pada kolom bayar hasil dari total alokasi di detail transaksi
 5. Revisi view kwitansi dan bahasanya
 6. Tambah fitur search, cetak, filter, pagination

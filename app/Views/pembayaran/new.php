@@ -27,7 +27,7 @@
         <!-- Small boxes (Stat box) -->
         <form action="<?= base_url($link); ?>" method="post" enctype="multipart/form-data">
             <div class="row">
-                <div class="col-md-6 mb-2">
+                <div class="col-md-5 mb-2">
                     <div class="card">
                         <div class="card-body">
 
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-2">
+                <div class="col-md-7 mb-2">
                     <div class="card">
                         <div class="card-body">
                             <h5>Detail Transaksi</h5>
