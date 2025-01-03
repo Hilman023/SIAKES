@@ -47,7 +47,10 @@
                   <th>Jenis Kelamin</th>
                   <th>Email</th>
                   <th>No Hp</th>
-                  <th>Action</th>
+
+                  <?php if (session()->get('role_id') == 1) : ?>
+                    <th>Action</th>
+                  <?php endif; ?>
                 </tr>
               </thead>
               <tbody>
@@ -62,8 +65,8 @@
                     <td><?= $d['jk']; ?></td>
                     <td><?= $d['email']; ?></td>
                     <td><?= $d['no_hp']; ?></td>
-                    <td>
-                      <?php if (session()->get('role_id') == 1) : ?>
+                    <?php if (session()->get('role_id') == 1) : ?>
+                      <td>
 
                         <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>"><i class="far fa-edit"></i></a>
                         <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
@@ -72,8 +75,8 @@
                           <!-- GET, POST, PUT, PATCH, DELETE-->
                           <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
                         </form>
-                      <?php endif; ?>
-                    </td>
+                      </td>
+                    <?php endif; ?>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
