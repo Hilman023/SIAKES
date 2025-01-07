@@ -84,6 +84,20 @@
 
   $(function() {
     $("#table2").DataTable({
+      "language": {
+        "sSearch": "Cari",
+        // "processing": ' <span class="sr-only dataTables_processing">Loading...</span> <br><b style="color:black;background:white">Process of displaying data<br> Please wait..</b>',
+        "oPaginate": {
+          "sFirst": "Page First",
+          "sLast": "Page Last",
+          "sNext": "Next",
+          "sPrevious": "Previous"
+        },
+        // "sInfo": "Total :  _TOTAL_ , Row (_START_ - _END_)",
+        "sInfoEmpty": "No data displayed",
+        "sZeroRecords": "Data not available",
+        "lengthMenu": "&nbsp;Show _MENU_ entries",
+      },
       "responsive": true,
       dom: 'Bflrtip',
       buttons: [{
