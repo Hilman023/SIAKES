@@ -86,10 +86,10 @@
                             </div>
                             <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="kembalian">Kembalian</label>
                                 <input type="number" readonly id="kembalian" name="kembalian" class="form-control">
-                            </div>
+                            </div> -->
 
 
 
@@ -171,12 +171,12 @@
                 if (data.success !== false) {
                     var list = '';
                     var array = data.data.detail;
-                    var alokasi = bayar_nominal;
+                    var alokasi = parseFloat(bayar_nominal);
+
                     var bayar = 0;
                     var bayar_alokasi = 0;
                     for (let index = 0; index < array.length; index++) {
                         const element = array[index];
-
 
                         done = (parseFloat(element.bayar_nominal) == parseFloat(element.subtotal)) ? true : false;
 
@@ -220,11 +220,13 @@
     }
 
     $('#bayar-50').on('click', function() {
-        var tagihan = $('#tagihan').val();
+        // var tagihan = $('#tagihan').val();
+        var tagihan = $('#tagihan').autoNumeric('get');
         tagihan = parseFloat(tagihan);
         var bayar = (tagihan / 2);
 
-        $('#bayar_nominal').val(bayar);
+        $('#bayar_nominal').autoNumeric('set', bayar);
+        // $('#bayar_nominal').val(bayar);
 
         setDetail(bayar);
 
@@ -236,10 +238,12 @@
     })
 
     $('#bayar-100').on('click', function() {
-        var tagihan = $('#tagihan').val();
+        // var tagihan = $('#tagihan').val();
+        var tagihan = $('#tagihan').autoNumeric('get');
         var bayar = (tagihan);
+        $('#bayar_nominal').autoNumeric('set', bayar);
 
-        $('#bayar_nominal').val(bayar);
+        // $('#bayar_nominal').val(bayar);
 
         setDetail(bayar);
 
