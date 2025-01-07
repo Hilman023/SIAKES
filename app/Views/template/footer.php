@@ -87,6 +87,10 @@
       "responsive": true,
       dom: 'Bflrtip',
       buttons: [{
+        extend: 'print',
+        className: "btn bg-tranparent btn-sm btn-secondary",
+        footer: true
+      }, {
         extend: 'excel',
         className: "btn bg-tranparent btn-sm btn-success",
         footer: true
