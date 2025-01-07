@@ -45,7 +45,7 @@ class Siswa extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -137,9 +137,9 @@ class Siswa extends BaseController
         $this->modelsiswahistory->insert($data_history);
 
         if ($res) {
-            setAlert('success', 'Success', 'Add Success');
+            setAlert('success', 'Berhasil', 'Data siswa berhasil ditambahkan');
         } else {
-            setAlert('warning', 'Warning', 'Add Failed');
+            setAlert('warning', 'Peringatan', 'Data siswa gagal ditambahkan');
         }
 
         return redirect()->to($this->link);
@@ -154,7 +154,7 @@ class Siswa extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -180,7 +180,7 @@ class Siswa extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -231,9 +231,9 @@ class Siswa extends BaseController
 
         $res = $this->model->update($id, $data);
         if ($res) {
-            setAlert('success', 'Success', 'Edit Success');
+            setAlert('success', 'Berhasil', 'Data siswa berhasil diperbarui');
         } else {
-            setAlert('warning', 'Warning', 'Edit Failed');
+            setAlert('warning', 'Peringatan', 'Data siswa gagal diperbarui');
         }
 
         return redirect()->to($this->link);
@@ -248,15 +248,15 @@ class Siswa extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
         $res = $this->model->delete($id);
         if ($res) {
-            setAlert('success', 'Success', 'Delete Success');
+            setAlert('success', 'Berhasil', 'Data siswa berhasil dihapus');
         } else {
-            setAlert('warning', 'Warning', 'Delete Failed');
+            setAlert('warning', 'Peringatan', 'Data siswa gagal dihapus');
         }
 
         return redirect()->to($this->link);

@@ -7,13 +7,14 @@
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0">Dashboard</h1>
-      </div><!-- /.col -->
+      </div>
+      <!-- /.col 
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
         </ol>
-      </div><!-- /.col -->
+      </div> -->
+
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </div>
@@ -28,7 +29,7 @@
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <p>Penerimaan bulan ini</p>
+            <p>Pemasukan bulan ini</p>
             <!-- data yang ditampilkan dari total jumlah pemasukan perbulan -->
             <font size="5">Rp. </font>
             <font size="6"><b><?= number_format($pemasukan, 0, ',', '.'); ?></b></font>
@@ -165,37 +166,6 @@
     </div>
   </div>
   </div>
-
-  <!-- /.row 
-    <div class="row">
-      <div class="col-md-6 mb-2">
-        <div class="calendar-container">
-          <header class="calendar-header">
-            <p class="calendar-current-date"></p>
-            <div class="calendar-navigation">
-              <span id="calendar-prev" class="fas fa-chevron-circle-left">
-              </span>
-              <span id="calendar-next" class="fas fa-chevron-circle-right">
-              </span>
-            </div>
-          </header>
-
-          <div class=" calendar-body">
-            <ul class="calendar-weekdays">
-              <li>Min</li>
-              <li>Sen</li>
-              <li>Sel</li>
-              <li>Rab</li>
-              <li>Kam</li>
-              <li>Jum</li>
-              <li>Sab</li>
-            </ul>
-            <ul class="calendar-dates"></ul>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </div><!-- /.container-fluid -->
 </section>
 
 <!-- /.content -->
@@ -323,7 +293,7 @@
 
   // setup 
   const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
     datasets: [{
       label: 'Pemasukan',
       data: <?= json_encode($chart_pemasukan); ?>,

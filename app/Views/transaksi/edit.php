@@ -10,7 +10,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
           <li class="breadcrumb-item"><?= $title; ?></li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
-                    <label for="nama_aktor">Aktor</label>
+                    <label for="nama_aktor">Nama</label>
                     <input readonly type="text" id="nama_aktor" name="nama_aktor" class="form-control" value="<?= $data['nama_aktor']; ?>">
                   </div>
 
@@ -103,7 +103,7 @@
               <div class="row">
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
-                    <label for="id_kategori">Kategori</label>
+                    <label for="id_kategori">Jenis</label>
                     <input readonly type="text" class="form-control" value="<?= $data['nama_kategori']; ?>">
                   </div>
 
@@ -111,18 +111,12 @@
 
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
-                    <label for="id_kategori_sub">Kategori Sub</label>
+                    <label for="id_kategori_sub">Jenis Bayar</label>
                     <input readonly type="text" class="form-control" value="<?= $data['nama_kategori_sub']; ?>">
                   </div>
 
                 </div>
               </div>
-
-
-
-
-
-
 
             </div>
           </div>
@@ -134,9 +128,9 @@
               <div class="row">
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
-                    <label for="id_kategori">Kategori</label>
+                    <label for="id_kategori">Jenis</label>
                     <select disabled required name="id_kategori" id="id_kategori" class="form-control <?= ($error = validation_show_error('id_kategori')) ? 'border-danger' : ''; ?>">
-                      <option disabled selected>== SELECT ==</option>
+                      <option disabled selected>== PILIH ==</option>
                       <?php foreach ($kategori as $d): ?>
                         <?php if ($data['nama_kategori'] == $d['nama']): ?>
                           <option selected value="<?= $d['id']; ?>"><?= $d['nama']; ?></option>
@@ -152,7 +146,7 @@
 
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
-                    <label for="id_kategori_sub">Kategori Sub</label>
+                    <label for="id_kategori_sub">Jenis Bayar</label>
                     <select required disabled name="id_kategori_sub" id="id_kategori_sub" class="form-control <?= ($error = validation_show_error('id_kategori_sub')) ? 'border-danger' : ''; ?>">
                     </select>
                   </div>
@@ -203,7 +197,7 @@
 
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
-                    <label for="subtotal">Sub Total</label>
+                    <label for="subtotal">Total</label>
                     <input type="number" readonly class="form-control <?= ($error = validation_show_error('subtotal')) ? 'border-danger' : ''; ?>" id="subtotal" name="subtotal">
                   </div>
                   <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
@@ -234,9 +228,9 @@
                     <th>Item</th>
                     <th>Qty</th>
                     <th>Harga</th>
-                    <th>Sub Total</th>
+                    <th>Total</th>
                     <th>Keterangan</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody id="res-item">
@@ -255,7 +249,7 @@
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
-              <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Simpan</button>
+              <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i>Simpan</button>
               <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
 
             </div>
@@ -287,7 +281,7 @@
         if (data.success !== false) {
           $('#id_aktor').removeAttr('disabled');
           var array = data.data
-          var list = '<option selected disabled>== SELECT ==</option>';
+          var list = '<option selected disabled>== PILIH ==</option>';
           for (let index = 0; index < array.length; index++) {
             const element = array[index];
             list += `<option value="` + element.id_aktor + `">` + element.nama + ` ( ` + element.nomer_induk + ` )</option>`;
@@ -354,7 +348,7 @@
         if (data.success !== false) {
           $('#id_kategori_sub').removeAttr('disabled');
           var array = data.data
-          var list = '<option selected disabled>== SELECT ==</option>';
+          var list = '<option selected disabled>== PILIH ==</option>';
           for (let index = 0; index < array.length; index++) {
             const element = array[index];
             var is_manual = (element.is_manual == 1) ? 'Manual' : 'Auto'
@@ -404,7 +398,7 @@
         if (data.success !== false) {
           $('#item').removeAttr('disabled');
           var array = data.data
-          var list = '<option selected disabled>== SELECT ==</option>';
+          var list = '<option selected disabled>== PILIH ==</option>';
           for (let index = 0; index < array.length; index++) {
             const element = array[index];
             list += `<option value="` + element.nama + `">` + element.nama + `</option>`;

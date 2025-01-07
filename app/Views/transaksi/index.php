@@ -10,7 +10,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
           <li class="breadcrumb-item"><?= $title; ?></li>
         </ol>
       </div>
@@ -37,16 +37,16 @@
                 <tr>
                   <th>No</th>
                   <th>No Transaksi</th>
-                  <th>Kategori</th>
-                  <th>Kategori Sub</th>
-                  <th>Aktor</th>
+                  <th>Jenis</th>
+                  <th>Jenis Bayar</th>
+                  <th>Nama</th>
                   <th>Jenis Aktor</th>
                   <th>Tanggal Transaksi</th>
                   <th>Total Nominal</th>
                   <th>Bayar Nominal</th>
                   <th>Sisa Nominal</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -60,9 +60,9 @@
                     <td><?= $d['nama_aktor']; ?></td>
                     <td><?= $d['jenis_aktor']; ?></td>
                     <td><?= $d['tanggal_transaksi']; ?></td>
-                    <td><?= number_format($d['total_nominal'], 0, ',', '.'); ?></td>
-                    <td><?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
-                    <td><?= number_format($d['sisa_nominal'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['total_nominal'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['sisa_nominal'], 0, ',', '.'); ?></td>
                     <td><?= $d['status']; ?></td>
                     <td>
                       <a href="<?= base_url($link . '/' . $d['id']); ?>" class="btn btn-success mb-2 btn-sm"><i class="fas fa-eye"></i></a>

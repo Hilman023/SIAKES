@@ -73,13 +73,13 @@ function initAlert()
     const ket = e.getAttribute('data-ket');
     const href = e.getAttribute('data-href') ? e.getAttribute('data-href') : e.getAttribute('href');
     Swal.fire({
-      title: 'Are you sure?',
+      title: 'Apakah Yakin Menghapus ?',
       text: ket,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Iya, hapus ini'
     }).then((result) => {
       if (result.value) {
         if(href){

@@ -77,9 +77,9 @@ class MasterKategoriJurusan extends BaseController
 
         $res = $this->model->save($data);
         if ($res) {
-            setAlert('success', 'Success', 'Add Success');
+            setAlert('success', 'Berhasil', 'Jurusan sekolah berhasil ditambahakan');
         } else {
-            setAlert('warning', 'Warning', 'Add Failed');
+            setAlert('warning', 'Peringatan', 'Jurusan sekolah gagal ditambahakan');
         }
 
         return redirect()->to($this->link);
@@ -94,7 +94,7 @@ class MasterKategoriJurusan extends BaseController
     {
         $result = $this->model->where('jenis', $this->jenis)->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -116,7 +116,7 @@ class MasterKategoriJurusan extends BaseController
     {
         $result = $this->model->where('jenis', $this->jenis)->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -137,9 +137,9 @@ class MasterKategoriJurusan extends BaseController
 
         $res = $this->model->update($id, $data);
         if ($res) {
-            setAlert('success', 'Success', 'Edit Success');
+            setAlert('success', 'Berhasil', 'Jurusan sekolah berhasil diperbarui');
         } else {
-            setAlert('warning', 'Warning', 'Edit Failed');
+            setAlert('warning', 'Peringatan', 'Jurusan sekolah gagal diperbarui');
         }
 
         return redirect()->to($this->link);
@@ -154,15 +154,15 @@ class MasterKategoriJurusan extends BaseController
     {
         $result = $this->model->where('jenis', $this->jenis)->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
         $res = $this->model->delete($id);
         if ($res) {
-            setAlert('success', 'Success', 'Delete Success');
+            setAlert('success', 'Success', 'Jurusan sekolah berhasil dihapus');
         } else {
-            setAlert('warning', 'Warning', 'Delete Failed');
+            setAlert('warning', 'Peringatan', 'Jurusan sekolah gagal dihapus');
         }
 
         return redirect()->to($this->link);

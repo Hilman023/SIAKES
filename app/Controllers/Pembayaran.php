@@ -107,7 +107,7 @@ class Pembayaran extends BaseController
         $result = $this->modeltransaksi->find($data['id_transaksi']);
 
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID ID TRANSAKSI');
+            setAlert('warning', 'Peringatan', 'NOT VALID ID TRANSAKSI');
             return redirect()->to($this->link);
         }
 
@@ -120,7 +120,7 @@ class Pembayaran extends BaseController
         $bayar_nominal = $bayar_nominal + $data['bayar_nominal'];
 
         $sisa_nominal = ($total_nominal - $bayar_nominal);
-        $status = ($sisa_nominal == 0) ? "Paid" : 'Partial';
+        $status = ($sisa_nominal == 0) ? "Lunas" : 'Sebagian';
 
         // update transaksi
         $data_update = [
@@ -162,9 +162,9 @@ class Pembayaran extends BaseController
         }
 
         if ($res) {
-            setAlert('success', 'Success', 'Pembayaran Success');
+            setAlert('success', 'Berhasil', 'Pembayaran berhasil dilakukan');
         } else {
-            setAlert('warning', 'Warning', 'Pembayaran Failed');
+            setAlert('warning', 'Peringatan', 'Pembayaran gagal dilakukan');
         }
 
         return redirect()->to($this->link);
@@ -174,7 +174,7 @@ class Pembayaran extends BaseController
     {
         $result = $this->model->select("tb_pembayaran.*, jenis_aktor, tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->join('tb_transaksi', 'tb_transaksi.id = tb_pembayaran.id_transaksi')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -192,7 +192,7 @@ class Pembayaran extends BaseController
     {
         $result = $this->model->select("tb_pembayaran.*, jenis_aktor, tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor, kelas.nama as nama_kelas, jurusan.nama as nama_jurusan, tahun.nama as nama_tahun,  tb_user.name as nama_user")->select("(CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nipd ELSE tb_guru.nik END) as nik")->join('tb_transaksi', 'tb_transaksi.id = tb_pembayaran.id_transaksi')->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->join('tb_master_kategori as kelas', 'kelas.id = tb_siswa.id_kelas', 'LEFT')->join('tb_master_kategori as jurusan', 'jurusan.id = tb_siswa.id_jurusan', 'LEFT')->join('tb_master_kategori as tahun', 'tahun.id = tb_siswa.id_tahun', 'LEFT')->join('tb_user', 'tb_user.id = tb_transaksi.cid', 'LEFT')->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 

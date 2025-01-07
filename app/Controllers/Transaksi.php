@@ -264,9 +264,9 @@ class Transaksi extends BaseController
         session()->remove($this->key_cart);
 
         if ($res) {
-            setAlert('success', 'Success', 'Transaksi Success');
+            setAlert('success', 'Berhasil', 'Transaksi berhasil dilakukan');
         } else {
-            setAlert('warning', 'Warning', 'Transaksi Failed');
+            setAlert('warning', 'Peringatan', 'Transaksi gagal dilakukan');
         }
 
         return redirect()->to($this->link);
@@ -334,7 +334,7 @@ class Transaksi extends BaseController
     {
         $result = $this->model->select("tb_transaksi.*, tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor, kelas.nama as nama_kelas, jurusan.nama as nama_jurusan, tahun.nama as nama_tahun")->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->join('tb_master_kategori as kelas', 'kelas.id = tb_siswa.id_kelas', 'LEFT')->join('tb_master_kategori as jurusan', 'jurusan.id = tb_siswa.id_jurusan', 'LEFT')->join('tb_master_kategori as tahun', 'tahun.id = tb_siswa.id_tahun', 'LEFT')->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -354,7 +354,7 @@ class Transaksi extends BaseController
         $result = $this->model->select("tb_transaksi.*, tb_transaksi_kategori.nama as nama_kategori, tb_transaksi_kategori_sub.nama as nama_kategori_sub, (CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->find($id);
 
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -388,7 +388,7 @@ class Transaksi extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -427,9 +427,9 @@ class Transaksi extends BaseController
         session()->remove($this->key_cart);
 
         if ($res) {
-            setAlert('success', 'Success', 'Edit Success');
+            setAlert('success', 'Berhasil', 'Transaksi berhasil diperbarui');
         } else {
-            setAlert('warning', 'Warning', 'Edit Failed');
+            setAlert('warning', 'Peringatan', 'Transaksi gagal diperbarui');
         }
 
         return redirect()->to($this->link);
@@ -439,20 +439,20 @@ class Transaksi extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
-        if ($result['status'] == 'Paid') {
-            setAlert('warning', 'Warning', 'Sudah lunas, gak bisa di lenyapkan bukti nya ^_^');
+        if ($result['status'] == 'Lunas') {
+            setAlert('warning', 'Peringatan', 'Pembayaran telah lunas, transaksi tidak bisa dihapus');
             return redirect()->to($this->link);
         }
 
         $res = $this->model->delete($id);
         if ($res) {
-            setAlert('success', 'Success', 'Delete Success');
+            setAlert('success', 'Berhasil', 'Transaksi berhasil dihapus');
         } else {
-            setAlert('warning', 'Warning', 'Delete Failed');
+            setAlert('warning', 'Peringatan', 'Transaksi gagal dihapus');
         }
 
         return redirect()->to($this->link);
@@ -462,7 +462,7 @@ class Transaksi extends BaseController
     {
         $result = $this->model->select('tb_transaksi.*, tb_transaksi_kategori_sub.nama as nama_kategori_sub, tb_user.name as nama_user, kelas.nama as nama_kelas, jurusan.nama as nama_jurusan, tahun.nama as nama_tahun')->select("(CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nama ELSE tb_guru.nama END) as nama_aktor")->select("(CASE WHEN jenis_aktor = 'siswa' THEN tb_siswa.nipd ELSE tb_guru.nik END) as nik")->join('tb_transaksi_kategori_sub', 'tb_transaksi_kategori_sub.id = tb_transaksi.id_kategori_sub')->join('tb_transaksi_kategori', 'tb_transaksi_kategori.id = tb_transaksi_kategori_sub.id_kategori')->join('tb_siswa', "tb_siswa.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'siswa'", "LEFT")->join('tb_guru', "tb_guru.id = tb_transaksi.id_aktor AND tb_transaksi.jenis_aktor = 'guru'", "LEFT")->join('tb_user', 'tb_user.id = tb_transaksi.cid', 'LEFT')->join('tb_master_kategori as kelas', 'kelas.id = tb_siswa.id_kelas', 'LEFT')->join('tb_master_kategori as jurusan', 'jurusan.id = tb_siswa.id_jurusan', 'LEFT')->join('tb_master_kategori as tahun', 'tahun.id = tb_siswa.id_tahun', 'LEFT')->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 

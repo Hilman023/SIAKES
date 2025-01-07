@@ -6,13 +6,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">New <?= $title; ?></h1>
+                <h1 class="m-0"><?= $title; ?> Baru</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
                     <li class="breadcrumb-item">Kelola <?= $title; ?></li>
-                    <li class="breadcrumb-item active">New</li>
+                    <li class="breadcrumb-item active">Baru</li>
                 </ol>
             </div>
             <!-- /.col -->
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="id_transaksi">Transaksi</label>
                                 <select class="form-control <?= ($error = validation_show_error('id_transaksi')) ? 'border-danger' : ''; ?>" name="id_transaksi" id="id_transaksi">
-                                    <option disabled selected>== SELECT ==</option>
+                                    <option disabled selected>== PILIH ==</option>
                                     <?php foreach ($transaksi as $d): ?>
                                         <?php if ($custom_id == $d['id']): ?>
 
@@ -60,7 +60,7 @@
 
 
                             <div class="form-group">
-                                <label for="method">Method</label>
+                                <label for="method">Metode Pembayaran</label>
                                 <select class="form-control <?= ($error = validation_show_error('method')) ? 'border-danger' : ''; ?>" name="method" id="method">
                                     <?php foreach ($method as $d): ?>
 

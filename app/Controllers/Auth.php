@@ -49,19 +49,19 @@ class Auth extends BaseController
             session()->set('role_id', $dataUser['role_id']);
             session()->set('username', $dataUser['username']);
 
-            setAlert('success', 'Success', 'User login');
+            setAlert('success', 'Berhasil', 'Anda berhasil login');
             return redirect()->to('dashboard');
           } else {
-            setAlert('warning', 'Warning', 'User deleted, please contact administrator');
+            setAlert('warning', 'Peringatan', 'Akun dihapus, silahkan hubungi administrator');
           }
         } else {
-          setAlert('warning', 'Warning', 'User disabled active, please contact administrator');
+          setAlert('warning', 'Peringatan', 'Akun dinonaktifkan, silahkan hubungi administrator');
         }
       } else {
-        setAlert('warning', 'Warning', 'Password Dont Match');
+        setAlert('warning', 'Peringatan', 'Password tidak sesuai');
       }
     } else {
-      setAlert('warning', 'Warning', 'User Not Register');
+      setAlert('warning', 'Peringatan', 'Akun tidak terdaftar');
     }
 
     return redirect()->to('auth');
@@ -103,10 +103,10 @@ class Auth extends BaseController
 
     $res = $this->model->save($data);
     if ($res) {
-      setAlert('success', 'Success', 'Register Success');
+      setAlert('success', 'Berhasil', 'Pendaftaran akun berhasil');
       return redirect()->to($this->link);
     } else {
-      setAlert('warning', 'Warning', 'Register Failed');
+      setAlert('warning', 'Peringatan', 'Pendaftaran akun gagal');
       return redirect()->to($this->link . '/register');
     }
   }

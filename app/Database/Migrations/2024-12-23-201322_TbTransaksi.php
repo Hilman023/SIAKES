@@ -50,8 +50,8 @@ class TbTransaksi extends Migration
             'status' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'default' => 'Pending'
-                // Pending, Partial, Paid
+                'default' => 'Menunggu'
+                // Menunggu, Lunas, Sebagian
             ],
             'cid' => [
                 'type'           => 'INT',

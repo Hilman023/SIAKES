@@ -185,10 +185,10 @@
                       <td><?= $a++; ?></td>
                       <td><?= $d['item']; ?></td>
                       <td><?= $d['qty']; ?></td>
-                      <td><?= number_format($d['harga'], 0, ',', '.'); ?></td>
-                      <td><?= number_format($d['subtotal'], 0, ',', '.'); ?></td>
-                      <td><?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
-                      <td><?= number_format($d['sisa_nominal'], 0, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($d['harga'], 0, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($d['subtotal'], 0, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($d['sisa_nominal'], 0, ',', '.'); ?></td>
                       <td><?= $d['keterangan']; ?></td>
                     </tr>
                   <?php endforeach; ?>
@@ -208,7 +208,7 @@
                     <th>Method</th>
                     <th>Bayar Nominal</th>
                     <th>Tanggal Pembayaran</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -218,7 +218,7 @@
                       <td><?= $a++; ?></td>
                       <td><?= $d['no_pembayaran']; ?></td>
                       <td><?= $d['method']; ?></td>
-                      <td><?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
                       <td><?= $d['tanggal_pembayaran']; ?></td>
                       <td>
                         <a target="_blank" href="<?= base_url('pembayaran/' . $d['id']); ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>

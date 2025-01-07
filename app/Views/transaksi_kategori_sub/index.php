@@ -39,7 +39,7 @@
                   <th>Nama</th>
                   <th>Kategori</th>
                   <th>Input</th>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>

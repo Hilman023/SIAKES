@@ -93,9 +93,9 @@ class Guru extends BaseController
 
         $res = $this->model->save($data);
         if ($res) {
-            setAlert('success', 'Success', 'Add Success');
+            setAlert('success', 'Berhasil', 'Data guru berhasil ditambahkan');
         } else {
-            setAlert('warning', 'Warning', 'Add Failed');
+            setAlert('warning', 'Peringatan', 'Data guru gagal ditambahakan');
         }
 
         return redirect()->to($this->link);
@@ -110,7 +110,7 @@ class Guru extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -133,7 +133,7 @@ class Guru extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -166,9 +166,9 @@ class Guru extends BaseController
 
         $res = $this->model->update($id, $data);
         if ($res) {
-            setAlert('success', 'Success', 'Edit Success');
+            setAlert('success', 'Berhasil', 'Data guru berhasil diperbarui');
         } else {
-            setAlert('warning', 'Warning', 'Edit Failed');
+            setAlert('warning', 'Peringatan', 'Data guru gagal diperbarui');
         }
 
         return redirect()->to($this->link);
@@ -183,15 +183,15 @@ class Guru extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
         $res = $this->model->delete($id);
         if ($res) {
-            setAlert('success', 'Success', 'Delete Success');
+            setAlert('success', 'Berhasil', 'Data berhasil dihapus');
         } else {
-            setAlert('warning', 'Warning', 'Delete Failed');
+            setAlert('warning', 'Peringatan', 'Data gagal dihapus');
         }
 
         return redirect()->to($this->link);

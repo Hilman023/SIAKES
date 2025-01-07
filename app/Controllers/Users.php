@@ -104,9 +104,9 @@ class Users extends BaseController
 
         $res = $this->model->save($data);
         if ($res) {
-            setAlert('success', 'Success', 'Add Success');
+            setAlert('success', 'Berhasil', 'Data akun berhasil ditambahkan');
         } else {
-            setAlert('warning', 'Warning', 'Add Failed');
+            setAlert('warning', 'Peringatan', 'Data akun gagal ditambahkan');
         }
 
         return redirect()->to($this->link);
@@ -121,7 +121,7 @@ class Users extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -144,7 +144,7 @@ class Users extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -200,9 +200,9 @@ class Users extends BaseController
 
         $res = $this->model->update($id, $data);
         if ($res) {
-            setAlert('success', 'Success', 'Edit Success');
+            setAlert('success', 'Berhasil', 'Data akun berhasil diperbarui');
         } else {
-            setAlert('warning', 'Warning', 'Edit Failed');
+            setAlert('warning', 'Peringatan', 'Data akun gagal diperbarui');
         }
 
         return redirect()->to($this->link);
@@ -217,7 +217,7 @@ class Users extends BaseController
     {
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -227,9 +227,9 @@ class Users extends BaseController
 
         $res = $this->model->delete($id);
         if ($res) {
-            setAlert('success', 'Success', 'Delete Success');
+            setAlert('success', 'Berhasil', 'Data akun berhasil dihapus');
         } else {
-            setAlert('warning', 'Warning', 'Delete Failed');
+            setAlert('warning', 'Peringatan', 'Data akun gagal dihapus');
         }
 
         return redirect()->to($this->link);
@@ -238,13 +238,13 @@ class Users extends BaseController
     public function active($id = null, $active = null)
     {
         if ($id == null || $active == null) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
         $result = $this->model->find($id);
         if (!$result) {
-            setAlert('warning', 'Warning', 'NOT VALID');
+            setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
 
@@ -255,9 +255,9 @@ class Users extends BaseController
         $res = $this->model->update($id, $data);
         if ($res) {
             $title = ($active == 0) ? 'Non ' : '';
-            setAlert('success', 'Success', $title . 'Active Success');
+            setAlert('success', 'Berhasil', $title . 'Akun berhasil diaktifkan');
         } else {
-            setAlert('warning', 'Warning', 'Active Failed');
+            setAlert('warning', 'Peringatan', 'Akun gagal diaktifkan');
         }
         return redirect()->to($this->link);
     }
@@ -325,9 +325,9 @@ class Users extends BaseController
 
         $res = $this->model->update($dataUser['id'], $data);
         if ($res) {
-            setAlert('success', 'Success', 'Update Success');
+            setAlert('success', 'Berhasil', 'Profil berhasil diperbarui');
         } else {
-            setAlert('warning', 'Warning', 'Update Failed');
+            setAlert('warning', 'Peringatan', 'Profil gagal diperbarui');
         }
         return redirect()->to('profile');
     }
@@ -359,14 +359,14 @@ class Users extends BaseController
 
                 $this->model->update($dataRes['id'], $data);
 
-                setAlert('success', 'Success', 'Password Changed Successfully');
+                setAlert('success', 'Berhasil', 'Password berhasil diperbarui');
             } else {
-                setAlert('warning', 'Warning', 'The new password is not the same');
+                setAlert('warning', 'Gagal', 'Password baru tidak boleh sama dengan password lama');
             }
         } else {
             // setAlert('warning', 'Warning', 'The old password is different');
             $data = [
-                'password_old' => 'The old password is different'
+                'password_old' => 'Password lama tidak sesuai'
             ];
             return redirect()->back()->with('_ci_validation_errors', $data)->withInput();
         }
