@@ -81,6 +81,41 @@
     }
 
   }
+
+  $(function() {
+    $("#table2").DataTable({
+      "responsive": true,
+      dom: 'Bflrtip',
+      buttons: [{
+        extend: 'excel',
+        className: "btn bg-tranparent btn-sm btn-success",
+        footer: true
+      }, ],
+      "pageLength": 5,
+      "lengthMenu": [
+        [5, 100, 1000, -1],
+        [5, 100, 1000, "ALL"],
+      ],
+    });
+
+  });
+
+  function setDataTables(id) {
+    $(id).DataTable({
+      "responsive": true,
+      dom: 'Bflrtip',
+      buttons: [{
+        extend: 'excel',
+        className: "btn bg-tranparent btn-sm btn-success",
+        footer: true
+      }, ],
+      "pageLength": 5,
+      "lengthMenu": [
+        [5, 100, 1000, -1],
+        [5, 100, 1000, "ALL"],
+      ],
+    });
+  }
 </script>
 
 <script>
