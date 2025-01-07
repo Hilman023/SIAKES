@@ -6,13 +6,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">New <?= $title; ?></h1>
+        <h1 class="m-0"><?= $title; ?> Baru</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
           <li class="breadcrumb-item">Kelola <?= $title; ?></li>
-          <li class="breadcrumb-item active">New</li>
+          <li class="breadcrumb-item active">Baru</li>
         </ol>
       </div>
       <!-- /.col -->
@@ -29,7 +29,7 @@
       <div class="col-md-5">
         <div class="card">
           <div class="card-header">
-            New <?= $title; ?>
+            <?= $title; ?> Baru
           </div>
           <div class="card-body">
             <form action="<?= base_url($link); ?>" method="post" enctype="multipart/form-data">
@@ -47,7 +47,7 @@
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
               <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nama</label>
                 <input type="text" class="form-control <?= ($error = validation_show_error('name')) ? 'border-danger' : ''; ?>" id="name" name="name" placeholder="Name" value="<?= old('name'); ?>">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
@@ -69,7 +69,7 @@
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
               <div class="form-group">
-                <label for="image">Image</label>
+                <label for="image">Poto profil</label>
                 <div id="imagePreview">
                   <img class="rounded-circle img-thumbnail d-block mb-2" width="120" src="<?= base_url(); ?>public/assets/uploads/users/user.png" alt="">
 

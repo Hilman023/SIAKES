@@ -32,7 +32,7 @@ class TbGuru extends Migration
             ],
             'jk' => [
                 'type'       => 'CHAR',
-                'constraint' => '1',
+                'constraint' => '10',
             ],
             'email' => [
                 'type'       => 'VARCHAR',

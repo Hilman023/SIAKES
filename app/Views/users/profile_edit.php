@@ -8,12 +8,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Edit Profile</h1>
+        <h1 class="m-0">Edit Profil</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item">Profile</li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
+          <li class="breadcrumb-item">Profil</li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
       </div>
@@ -32,7 +32,7 @@
         <div class="col-md-5">
           <div class="card">
             <div class="card-header">
-              Edit Profile
+              Edit Profil
             </div>
             <div class="card-body">
               <input type='hidden' name='_method' value='PUT' />
@@ -42,7 +42,7 @@
                 <input type="text" class="form-control" id="username" name="username" disabled placeholder="Username" value="<?= $data['username']; ?>">
               </div>
               <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nama</label>
                 <input type="text" class="form-control <?= ($error = validation_show_error('name')) ? 'border-danger' : ''; ?>" id="name" name="name" value="<?= $data['name']; ?>" placeholder="name">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
@@ -54,7 +54,7 @@
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
               <div class="form-group">
-                <label for="image">Image</label>
+                <label for="image">Poto profil</label>
                 <div id="imagePreview">
                   <img class="rounded-circle img-thumbnail d-block mb-2" width="120" src="<?= base_url(); ?>public/assets/uploads/users/<?= $data['image']; ?>" alt="">
 

@@ -52,7 +52,7 @@ class GuruModel extends BaseModel
   public $logId = false;
 
   public $jk = [
-    'L',
-    'P'
+    'Laki-laki',
+    'Perempuan'
   ];
 }

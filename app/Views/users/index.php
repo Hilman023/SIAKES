@@ -10,7 +10,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
           <li class="breadcrumb-item">Kelola <?= $title; ?></li>
         </ol>
       </div>
@@ -36,13 +36,13 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Image</th>
+                  <th>Poto profil</th>
                   <th>Username</th>
-                  <th>Name</th>
+                  <th>Nama</th>
                   <th>Role</th>
                   <th>Email</th>
-                  <th>Is Active</th>
-                  <th>Action</th>
+                  <th>Status akun</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>

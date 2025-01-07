@@ -8,12 +8,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Profile</h1>
+        <h1 class="m-0">Profil</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
+          <li class="breadcrumb-item active">Profil</li>
         </ol>
       </div>
       <!-- /.col -->
@@ -31,7 +31,7 @@
         <div class="card">
           <div class="card-header ">
             <h3 class="card-title">
-              My Profile -
+              Profil Saya -
               <a href="<?= base_url('profile/edit'); ?>" class="btn btn-sm btn-warning text-left">Edit</a>
 
 
@@ -57,7 +57,7 @@
                   <td><?= $data['title']; ?></td>
                 </tr>
                 <tr>
-                  <td>Name</td>
+                  <td>Nama</td>
                   <td>:</td>
                   <td><?= $data['name']; ?></td>
                 </tr>
@@ -67,7 +67,7 @@
                   <td><?= $data['email']; ?></td>
                 </tr>
                 <tr>
-                  <td>Member Since</td>
+                  <td>Tgl pembuatan akun</td>
                   <td>:</td>
                   <td><?= date('d/m/Y', strtotime($data['created_at'])); ?></td>
                 </tr>
