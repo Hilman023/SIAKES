@@ -11,7 +11,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
-                    <li class="breadcrumb-item">Kelola <?= $title; ?></li>
+                    <li class="breadcrumb-item"><?= $title; ?></li>
                     <li class="breadcrumb-item active">Baru</li>
                 </ol>
             </div>
@@ -109,7 +109,7 @@
                                             <th>Item</th>
                                             <th>Keterangan</th>
                                             <th>Qty</th>
-                                            <th>Sub Total</th>
+                                            <th>Total</th>
                                             <th>Bayar</th>
                                             <th>Alokasi</th>
                                         </tr>
@@ -229,9 +229,9 @@
         setDetail(bayar);
 
         Swal.fire({
-            icon: 'warning',
-            title: 'warning',
-            text: 'Gua tau loe bilang nya ke ortu mkh 100%, cuman bayar ke sini 50% sih -_-.'
+            icon: 'success',
+            title: 'Selesai',
+            text: 'Pembayaran 50% berhasil'
         })
     })
 
@@ -244,9 +244,9 @@
         setDetail(bayar);
 
         Swal.fire({
-            icon: 'warning',
-            title: 'warning',
-            text: 'Hayoh sisa 50% lagi, minta lagi ke ortu kan ^_^.'
+            icon: 'success',
+            title: 'Selesai',
+            text: 'Pembayaran 100% berhasil'
         })
     })
 </script>

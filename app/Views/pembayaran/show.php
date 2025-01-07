@@ -6,13 +6,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Show <?= $title; ?></h1>
+        <h1 class="m-0">Detail <?= $title; ?></h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
           <li class="breadcrumb-item"><?= $title; ?></li>
-          <li class="breadcrumb-item active">Show</li>
+          <li class="breadcrumb-item active">Detail</li>
         </ol>
       </div>
       <!-- /.col -->
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
-                    <label for="nama_aktor">Aktor</label>
+                    <label for="nama_aktor">Nama</label>
                     <input readonly type="text" id="nama_aktor" name="nama_aktor" class="form-control" value="<?= $data['nama_aktor']; ?>">
                   </div>
 
@@ -138,7 +138,7 @@
 
               <a target="_blank" href="<?= base_url($link . '/kwitansi/' . $data['id']); ?>" class="btn btn-info mt-3"><i class="fas fa-print"></i></a>
               <a target="_blank" href="<?= base_url($link . '/kwitansi/' . $data['id'] . '/2'); ?>" class="btn btn-info mt-3"><i class="fas fa-print"></i> <span class="badge badge-light">x2</span></a>
-              <a href="<?= base_url($link); ?>" class="btn btn-secondary mt-3">Home</a>
+              <a href="<?= base_url($link); ?>" class="btn btn-secondary mt-3">Kembali</a>
             </div>
           </div>
 

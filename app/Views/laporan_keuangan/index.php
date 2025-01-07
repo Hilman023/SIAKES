@@ -10,7 +10,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
           <li class="breadcrumb-item"><?= $title; ?></li>
         </ol>
       </div>
@@ -29,7 +29,7 @@
         <div class="col-md-3 mb-2">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="Start">Start</span>
+              <span class="input-group-text" id="Start">Mulai</span>
             </div>
             <input type="date" class="form-control" name="start" id="start" value="<?= $start; ?>">
           </div>
@@ -37,13 +37,13 @@
         <div class="col-md-3 mb-2">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="end">End</span>
+              <span class="input-group-text" id="end">Selesai</span>
             </div>
             <input type="date" class="form-control" name="end" id="end" value="<?= $end; ?>">
           </div>
         </div>
         <div class="col-md-2 mb-2">
-          <button type="submit" id="submit" class="btn  btn-primary">Submit</button>
+          <button type="submit" id="submit" class="btn  btn-primary">Simpan</button>
         </div>
       </div>
     </form>
@@ -58,7 +58,7 @@
                   <th>No Transaksi</th>
                   <th>Kategori</th>
                   <th>Kategori Sub</th>
-                  <th>Aktor</th>
+                  <th>Nama</th>
                   <th>Jenis Aktor</th>
                   <th>Tanggal Transaksi</th>
                   <th>Total Nominal</th>
@@ -78,9 +78,9 @@
                     <td><?= $d['nama_aktor']; ?></td>
                     <td><?= $d['jenis_aktor']; ?></td>
                     <td><?= $d['tanggal_transaksi']; ?></td>
-                    <td><?= number_format($d['total_nominal'], 0, ',', '.'); ?></td>
-                    <td><?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
-                    <td><?= number_format($d['sisa_nominal'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['total_nominal'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['bayar_nominal'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['sisa_nominal'], 0, ',', '.'); ?></td>
                     <td><?= $d['status']; ?></td>
                   </tr>
                 <?php endforeach; ?>

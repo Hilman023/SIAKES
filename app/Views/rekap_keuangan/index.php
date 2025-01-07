@@ -10,7 +10,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
           <li class="breadcrumb-item"><?= $title; ?></li>
         </ol>
       </div>
@@ -26,7 +26,9 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-12">
-        <button type="button" class="btn btn-primary mb-3">Saldo : <?= (count($data) > 0) ? number_format($data[0]['saldo'], 0, ',', '.') : 0; ?></button>
+        <button type="button" class="btn btn-primary mb-3">
+          <h5>Saldo : Rp. <?= (count($data) > 0) ? number_format($data[0]['saldo'], 0, ',', '.') : 0; ?></h5>
+        </button>
         <div class="card">
           <div class="card-body table-responsive">
             <table class="table" id="table2">
@@ -37,8 +39,8 @@
                   <th>Debit</th>
                   <th>Kredit</th>
                   <th>Saldo</th>
-                  <th>Type</th>
-                  <th>Date</th>
+                  <th>Kategori</th>
+                  <th>Tanggal Transaksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -47,9 +49,9 @@
                   <tr>
                     <td><?= $a++; ?></td>
                     <td><?= $d['no']; ?></td>
-                    <td><?= number_format($d['debit'], 0, ',', '.'); ?></td>
-                    <td><?= number_format($d['kredit'], 0, ',', '.'); ?></td>
-                    <td><?= number_format($d['saldo'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['debit'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['kredit'], 0, ',', '.'); ?></td>
+                    <td>Rp. <?= number_format($d['saldo'], 0, ',', '.'); ?></td>
                     <td><?= $d['type']; ?></td>
                     <td><?= $d['date']; ?></td>
                   </tr>
