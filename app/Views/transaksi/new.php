@@ -200,7 +200,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="total_nominal">Total Nominal</label>
-                <input type="text" readonly class="form-control <?= ($error = validation_show_error('total_nominal')) ? 'border-danger' : ''; ?>" id="total_nominal" name="total_nominal">
+                <input type="text" readonly class="form-control uang <?= ($error = validation_show_error('total_nominal')) ? 'border-danger' : ''; ?>" id="total_nominal" name="total_nominal">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
@@ -389,6 +389,8 @@
           $('#harga').val(data.data.nominal);
           $('#keterangan').val(data.data.keterangan);
 
+          // $('#harga').autoNumeric('set', data.data.harga);
+
           calSubTotal();
         } else {
           resetDetail();
@@ -463,8 +465,8 @@
               <td>` + (index + 1) + `</td>
               <td>` + element.item + `</td>
               <td>` + element.qty + `</td>
-              <td>` + element.harga + `</td>
-              <td>` + element.subtotal + `</td>
+              <td class="uang">` + element.harga + `</td>
+              <td class="uang">` + element.subtotal + `</td>
               <td>` + element.keterangan + `</td>
               <td><button type="button" onclick="deleteItem(` + element.id + `)" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
 
@@ -475,6 +477,10 @@
 
           $('#res-item').html(list);
           $('#total_nominal').val(total_nominal);
+
+          setNumeric();
+
+          $('#total_nominal').autoNumeric('set', total_nominal);
         }
       }
     });
