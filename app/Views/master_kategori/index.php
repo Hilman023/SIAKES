@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Kelola <?= $title; ?></h1>
+        <h1 class="m-0"><?= $title; ?></h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item">Kelola <?= $title; ?></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
+          <li class="breadcrumb-item"><?= $title; ?></li>
         </ol>
       </div>
       <!-- /.col -->
@@ -33,11 +33,11 @@
             <a href="<?= base_url($link . '/kelas/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
             <div class="table-responsive">
 
-              <table class="table " id="table2">
+              <table class="table " id="">
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama</th>
+                    <th>Kelas</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -73,11 +73,11 @@
             <a href="<?= base_url($link . '/jurusan/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
             <div class="table-responsive">
 
-              <table class="table " id="table2">
+              <table class="table " id="">
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama</th>
+                    <th>Jurusan</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -114,11 +114,11 @@
             <a href="<?= base_url($link . '/tahun/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
             <div class="table-responsive">
 
-              <table class="table " id="table2">
+              <table class="table " id="table3">
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama</th>
+                    <th>Tahun Ajar</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>

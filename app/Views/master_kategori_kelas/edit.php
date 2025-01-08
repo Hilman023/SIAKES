@@ -10,8 +10,8 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item">Kelola <?= $title; ?></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
+          <li class="breadcrumb-item"><?= $title; ?></li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
       </div>
@@ -36,7 +36,7 @@
               <?= csrf_field(); ?>
               <input type='hidden' name='_method' value='PUT' />
               <div class="form-group">
-                <label for="nama">nama</label>
+                <label for="nama">Kelas</label>
                 <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="nama" value="<?= old('nama', $data['nama']); ?>">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>

@@ -88,15 +88,15 @@
         "sSearch": "Cari",
         // "processing": ' <span class="sr-only dataTables_processing">Loading...</span> <br><b style="color:black;background:white">Process of displaying data<br> Please wait..</b>',
         "oPaginate": {
-          "sFirst": "Page First",
-          "sLast": "Page Last",
-          "sNext": "Next",
-          "sPrevious": "Previous"
+          "sFirst": "Pertama",
+          "sLast": "Terakhir",
+          "sNext": "Selanjutnya",
+          "sPrevious": "Sebelumnya"
         },
         // "sInfo": "Total :  _TOTAL_ , Row (_START_ - _END_)",
-        "sInfoEmpty": "No data displayed",
-        "sZeroRecords": "Data not available",
-        "lengthMenu": "&nbsp;Show _MENU_ entries",
+        "sInfoEmpty": "Tidak ada data yang ditampilkan",
+        "sZeroRecords": "Data tidak tersedia",
+        "lengthMenu": "&nbsp;Lihat _MENU_ Data",
       },
       "responsive": true,
       dom: 'Bflrtip',
@@ -109,6 +109,49 @@
         className: "btn bg-tranparent btn-sm btn-success",
         footer: true
       }, ],
+      "pageLength": 5,
+      "lengthMenu": [
+        [5, 100, 1000, -1],
+        [5, 100, 1000, "ALL"],
+      ],
+    });
+
+  });
+
+  function setDataTables(id) {
+    $(id).DataTable({
+      "responsive": true,
+      dom: 'Bflrtip',
+      buttons: [{
+        extend: 'excel',
+        className: "btn bg-tranparent btn-sm btn-success",
+        footer: true
+      }, ],
+      "pageLength": 5,
+      "lengthMenu": [
+        [5, 100, 1000, -1],
+        [5, 100, 1000, "ALL"],
+      ],
+    });
+  }
+
+  $(function() {
+    $("#table3").DataTable({
+      "language": {
+        "sSearch": "Cari",
+        // "processing": ' <span class="sr-only dataTables_processing">Loading...</span> <br><b style="color:black;background:white">Process of displaying data<br> Please wait..</b>',
+        "oPaginate": {
+          "sFirst": "Pertama",
+          "sLast": "Terakhir",
+          "sNext": "Selanjutnya",
+          "sPrevious": "Sebelumnya"
+        },
+        // "sInfo": "Total :  _TOTAL_ , Row (_START_ - _END_)",
+        "sInfoEmpty": "Tidak ada data yang ditampilkan",
+        "sZeroRecords": "Data tidak tersedia",
+        "lengthMenu": "&nbsp;Lihat _MENU_ Data",
+      },
+
       "pageLength": 5,
       "lengthMenu": [
         [5, 100, 1000, -1],
