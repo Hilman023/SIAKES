@@ -75,16 +75,19 @@
                                 <input type="text" readonly id="tagihan" name="tagihan" class="form-control uang">
                             </div>
 
-                            <div class="form-group">
-                                <button type="button" id="bayar-50" class="btn btn-warning btn-sm">50%</button>
-                                <button type="button" id="bayar-100" class="btn btn-primary btn-sm">100%</button>
-                            </div>
+
 
                             <div class="form-group">
                                 <label for="bayar_nominal">Bayar</label>
                                 <input type="text" id="bayar_nominal" name="bayar_nominal" class="form-control uang <?= ($error = validation_show_error('bayar_nominal')) ? 'border-danger' : ''; ?>">
                             </div>
                             <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
+
+                            <div class="form-group">
+                                <button type="button" id="bayar-50" class="btn btn-warning btn-sm">50%</button>
+                                <button type="button" id="bayar-100" class="btn btn-primary btn-sm">100%</button>
+                                <button type="button" id="bayar-custom" class="btn btn-secondary btn-sm">CUSTOM</button>
+                            </div>
 
                             <!-- <div class="form-group">
                                 <label for="kembalian">Kembalian</label>
@@ -188,7 +191,10 @@
                             bayar_alokasi = ((bayar >= alokasi) || (alokasi >= bayar)) ? alokasi : alokasi - bayar;
                             // jika yang di bayar lebih sama alokasi yang akan di bayar maka pake alokasi, 
 
-                            alokasi = (bayar >= alokasi) ? ((alokasi == 0) ? 0 : bayar - alokasi) : alokasi - bayar;
+                            // alokasi = (bayar >= alokasi) ? ((alokasi == 0) ? 0 : bayar - alokasi) : alokasi - bayar;
+                            alokasi = ((bayar >= alokasi) || (alokasi >= bayar)) ? ((alokasi == 0 || bayar >= alokasi) ? 0 : bayar - alokasi) : alokasi - bayar;
+
+
                         }
 
                         attr_done = (done) ? 'disabled' : '';
@@ -253,6 +259,18 @@
             icon: 'success',
             title: 'Selesai',
             text: 'Pembayaran 100% berhasil'
+        })
+    })
+
+    $('#bayar-custom').on('click', function() {
+        var bayar = $('#bayar_nominal').autoNumeric('get');
+
+        setDetail(bayar);
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Selesai',
+            text: 'Pembayaran Custom berhasil'
         })
     })
 </script>
