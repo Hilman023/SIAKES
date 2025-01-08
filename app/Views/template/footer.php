@@ -93,7 +93,7 @@
           "sNext": "Selanjutnya",
           "sPrevious": "Sebelumnya"
         },
-        // "sInfo": "Total :  _TOTAL_ , Row (_START_ - _END_)",
+        "sInfo": "Lihat _START_ sampai _END_ dari _TOTAL_ data",
         "sInfoEmpty": "Tidak ada data yang ditampilkan",
         "sZeroRecords": "Data tidak tersedia",
         "lengthMenu": "&nbsp;Lihat _MENU_ Data",
