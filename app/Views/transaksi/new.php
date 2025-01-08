@@ -139,7 +139,7 @@
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="harga">Harga</label>
-                    <input type="number" readonly class="form-control <?= ($error = validation_show_error('harga')) ? 'border-danger' : ''; ?>" id="harga" name="harga">
+                    <input type="text" readonly class="form-control uang <?= ($error = validation_show_error('harga')) ? 'border-danger' : ''; ?>" id="harga" name="harga">
                   </div>
                   <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
                 </div>
@@ -158,7 +158,7 @@
                 <div class="col-md-6 mb-2">
                   <div class="form-group">
                     <label for="subtotal">Total</label>
-                    <input type="number" readonly class="form-control <?= ($error = validation_show_error('subtotal')) ? 'border-danger' : ''; ?>" id="subtotal" name="subtotal">
+                    <input type="text" readonly class="form-control uang <?= ($error = validation_show_error('subtotal')) ? 'border-danger' : ''; ?>" id="subtotal" name="subtotal">
                   </div>
                   <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
                 </div>
@@ -386,10 +386,12 @@
       success: function(data) {
         if (data.success !== false) {
           $('#qty').val(data.data.qty);
-          $('#harga').val(data.data.nominal);
+          // $('#harga').val(data.data.nominal);
           $('#keterangan').val(data.data.keterangan);
 
-          // $('#harga').autoNumeric('set', data.data.harga);
+          $('#harga').autoNumeric('set', data.data.nominal);
+
+          setNumeric();
 
           calSubTotal();
         } else {
@@ -411,17 +413,22 @@
 
 
   function calSubTotal() {
-    var harga = parseFloat($('#harga').val());
+    // var harga = parseFloat($('#harga').val());
+    var harga = parseFloat($('#harga').autoNumeric('get'));
     var qty = parseFloat($('#qty').val());
-    $('#subtotal').val(harga * qty);
+    // $('#subtotal').val(harga * qty);
+
+    $('#subtotal').autoNumeric('set', harga * qty);
   }
 
   $('#add').on('click', function() {
     var item = $('#item').val();
     var qty = $('#qty').val();
-    var harga = $('#harga').val();
+    // var harga = $('#harga').val();
+    var harga = $('#harga').autoNumeric('get');
     var keterangan = $('#keterangan').val();
-    var subtotal = $('#subtotal').val();
+    // var subtotal = $('#subtotal').val();
+    var subtotal = $('#subtotal').autoNumeric('get');
 
     $.ajax({
       url: '<?= base_url($link); ?>/set_item',
