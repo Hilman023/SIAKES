@@ -183,8 +183,10 @@
                         if (!done) {
                             bayar = (parseFloat(element.bayar_nominal) == 0) ? parseFloat(element.subtotal) : parseFloat(element.bayar_nominal);
 
-                            bayar_alokasi = (bayar >= alokasi) ? alokasi : alokasi - bayar;
-                            // jika yang di bayar lebih sama alokasi yang akan di bayar 
+                            // bayar_alokasi = (bayar >= alokasi) ? alokasi : alokasi - bayar;
+                            // bayar_alokasi = (bayar >= alokasi) ? alokasi : ((alokasi >= bayar) ? alokasi : alokasi - bayar);
+                            bayar_alokasi = ((bayar >= alokasi) || (alokasi >= bayar)) ? alokasi : alokasi - bayar;
+                            // jika yang di bayar lebih sama alokasi yang akan di bayar maka pake alokasi, 
 
                             alokasi = (bayar >= alokasi) ? ((alokasi == 0) ? 0 : bayar - alokasi) : alokasi - bayar;
                         }
