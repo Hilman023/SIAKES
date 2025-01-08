@@ -1,32 +1,47 @@
 <div class="flex-container">
+    <table id="table" style="width: 100%;">
+        <tr>
+            <td>‎ </td>
+        </tr>
+        <tr>
+            <td rowspan="3" style="padding:0;padding-left:30px;padding-right:-60px;">
+                <img width="80" src="<?= base_url(); ?>public/assets/dist/img/logo_sekolah.png" alt="">
+            </td>
+            <td>
+                <p style="padding: 0;margin:0;">YAYASAN NURUL GINA SINDANGSARI</p>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <h2 style="padding: 0;margin:0;">NURUL GINA ABIDIN</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <small>Alamat : Jl. Raya Cisalak-Subang KM. 18 No. 09, Kec. Kasomalang - Subang 41283</small>
+            </td>
+        </tr>
+        <tr>
+            <td>‎ </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="border-top: 1px solid;border-bottom: 1px solid;">KWINTANSI PEMBAYARAN</td>
+        </tr>
+        <tr>
+            <td>‎ </td>
+        </tr>
+
+
+    </table>
+</div>
+<div class="flex-container">
     <div>
 
-        <table id="table">
-            <tr>
-                <td rowspan="2">
-                    <img width="70" src="<?= base_url(); ?>public/assets/dist/img/logo_sekolah.png" alt="">
-                </td>
-                <td></td>
-                <td>
-                    <h2>SMK</h2>
-                </td>
 
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <h2>NURUL GINA ABIDIN</h2>
-                </td>
-            </tr>
-            <tr>
-                <td>‎ </td>
-            </tr>
-            <tr>
-                <td colspan="3" style="border-top: 1px solid;border-bottom: 1px solid;">BUKTI BAYAR <?= strtoupper($data['nama_kategori_sub']); ?></td>
-            </tr>
-            <tr>
-                <td>‎ </td>
-            </tr>
+
+
+        <table id="table">
             <tr>
                 <td><b>NO</b></td>
                 <td>:</td>
@@ -81,7 +96,6 @@
             <tr>
                 <td>‎ </td>
             </tr>
-
         </table>
     </div>
     <div>
@@ -112,7 +126,7 @@
                 </tr>
                 <tr>
                     <td><b>Terbilang</b></td>
-                    <td colspan="3" style="text-align: end; text-transform: capitalize;"><b><?= terbilang($data['bayar_nominal']); ?></b></td>
+                    <td colspan="3" style="text-align: end; text-transform: capitalize;"><b><?= terbilang($data['bayar_nominal']); ?> Rupiah</b></td>
                 </tr>
             </tfoot>
         </table>
