@@ -23,7 +23,7 @@ $data_user = getProfile();
         <img src="<?= base_url(); ?>public/assets/uploads/users/<?= $data_user['image']; ?>" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block text-capitalize"><?= $data_user['username']; ?> - <?= $data_user['title']; ?></a>
+        <a href="#" class="d-block text-capitalize"><?= $data_user['name']; ?></a>
       </div>
     </div>
 

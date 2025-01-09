@@ -26,7 +26,7 @@
             <td>‎ </td>
         </tr>
         <tr>
-            <td colspan="3" style="border-top: 1px solid;border-bottom: 1px solid;">KWINTANSI PEMBAYARAN</td>
+            <td colspan="3" style="border-top: 1px solid;border-bottom: 1px solid;">Kwitansi <?= $data['nama_kategori_sub']; ?></td>
         </tr>
         <tr>
             <td>‎ </td>
@@ -113,16 +113,16 @@
 
                     <tr>
                         <td><?= $d['item']; ?></td>
-                        <td><?= number_format($d['harga'], 0, ',', '.'); ?></td>
+                        <td>Rp. <?= number_format($d['harga'], 0, ',', '.'); ?></td>
                         <td><?= $d['qty']; ?></td>
-                        <td><?= number_format($d['subtotal'], 0, ',', '.'); ?></td>
+                        <td>Rp. <?= number_format($d['subtotal'], 0, ',', '.'); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3"><b>Nominal</b></td>
-                    <td><b><?= number_format($data['bayar_nominal'], 0, ',', '.'); ?></b></td>
+                    <td><b>Rp. <?= number_format($data['bayar_nominal'], 0, ',', '.'); ?></b></td>
                 </tr>
                 <tr>
                     <td><b>Terbilang</b></td>
@@ -154,6 +154,7 @@
             </tr>
 
         </table>
+
     </div>
 </div>
 
