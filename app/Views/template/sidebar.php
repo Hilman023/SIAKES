@@ -182,7 +182,7 @@ $data_user = getProfile();
               <a href="<?= base_url('change-password'); ?>" class="nav-link <?= ($segment == 'change-password') ? 'active' : ''; ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>
-                  Ganti Password
+                  Ubah Password
                 </p>
               </a>
             </li>

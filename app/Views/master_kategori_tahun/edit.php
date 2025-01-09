@@ -6,12 +6,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Edit <?= $title; ?></h1>
+        <h1 class="m-0">Edit <?= $title; ?> Ajar</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><?= $title; ?></li>
+          <li class="breadcrumb-item"><?= $title; ?> Ajar</li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
       </div>
@@ -36,12 +36,12 @@
               <?= csrf_field(); ?>
               <input type='hidden' name='_method' value='PUT' />
               <div class="form-group">
-                <label for="nama">nama</label>
-                <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="nama" value="<?= old('nama', $data['nama']); ?>">
+                <label for="nama">Tahun Ajar</label>
+                <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="tahun ajar" value="<?= old('nama', $data['nama']); ?>">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
               <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
             </form>
           </div>

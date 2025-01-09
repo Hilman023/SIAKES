@@ -37,7 +37,7 @@
               <input type='hidden' name='_method' value='PUT' />
               <div class="form-group">
                 <label for="nama">Kelas</label>
-                <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="nama" value="<?= old('nama', $data['nama']); ?>">
+                <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="kelas" value="<?= old('nama', $data['nama']); ?>">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 

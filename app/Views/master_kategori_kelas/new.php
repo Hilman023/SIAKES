@@ -35,8 +35,8 @@
             <form action="<?= base_url($link); ?>" method="post" enctype="multipart/form-data">
               <?= csrf_field(); ?>
               <div class="form-group">
-                <label for="nama">Kelas</label>
-                <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="nama" value="<?= old('nama'); ?>">
+                <label for="kelas">Kelas</label>
+                <input type="text" class="form-control <?= ($error = validation_show_error('kelas')) ? 'border-danger' : ''; ?>" id="kelas" name="kelas" placeholder="kelas" value="<?= old('kelas'); ?>">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 

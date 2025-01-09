@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0"><?= $title; ?> Baru</h1>
+        <h1 class="m-0"><?= $title; ?> Ajar Baru</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -29,14 +29,14 @@
       <div class="col-md-5">
         <div class="card">
           <div class="card-header">
-            <?= $title; ?> Baru
+            <?= $title; ?> Ajar Baru
           </div>
           <div class="card-body">
             <form action="<?= base_url($link); ?>" method="post" enctype="multipart/form-data">
               <?= csrf_field(); ?>
               <div class="form-group">
-                <label for="nama">nama</label>
-                <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="nama" value="<?= old('nama'); ?>">
+                <label for="nama">Tahun Ajar</label>
+                <input type="text" class="form-control <?= ($error = validation_show_error('nama')) ? 'border-danger' : ''; ?>" id="nama" name="nama" placeholder="tahun ajar" value="<?= old('nama'); ?>">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 

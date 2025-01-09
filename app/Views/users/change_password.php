@@ -8,13 +8,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Change Password</h1>
+        <h1 class="m-0">Ubah Password</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-          <li class="breadcrumb-item">Profile</li>
-          <li class="breadcrumb-item active">Change Password</li>
+          <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Dashboard</a></li>
+          <li class="breadcrumb-item active">Ubah Password</li>
         </ol>
       </div>
       <!-- /.col -->
@@ -31,26 +30,26 @@
       <div class="col-md-5">
         <div class="card">
           <div class="card-header">
-            Change Password
+            Ubah Password
           </div>
           <div class="card-body">
             <form action="<?= base_url($link); ?>" method="post">
               <?= csrf_field(); ?>
               <input type='hidden' name='_method' value='PUT' />
               <div class="form-group">
-                <label for="password_old">Password Old</label>
-                <input type="password" class="form-control <?= ($error = validation_show_error('password_old')) ? 'border-danger' : ''; ?>" id="password_old" name="password_old" required placeholder="Password Old">
+                <label for="password_old">Password Lama</label>
+                <input type="password" class="form-control <?= ($error = validation_show_error('password_old')) ? 'border-danger' : ''; ?>" id="password_old" name="password_old" required placeholder="password lama">
               </div>
               <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
               <div class="form-group">
-                <label for="password_new">Password New</label>
-                <input type="password" class="form-control" id="password_new" name="password_new" required placeholder="Password New">
+                <label for="password_new">Password Baru</label>
+                <input type="password" class="form-control" id="password_new" name="password_new" required placeholder="password baru">
               </div>
               <div class="form-group">
-                <label for="password_retype">Password Retype</label>
-                <input type="password" class="form-control" id="password_retype" name="password_retype" required placeholder="Password Retype">
+                <label for="password_retype">Konfirmasi Password Baru</label>
+                <input type="password" class="form-control" id="password_retype" name="password_retype" required placeholder="konfirmasi password baru">
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
           </div>
         </div>
