@@ -29,7 +29,7 @@
 
         <div class="card">
           <div class="card-body ">
-            <h4>Kategori Kelas</h4>
+            <h4>Kelas</h4>
             <a href="<?= base_url($link . '/kelas/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
             <div class="table-responsive">
 
@@ -69,7 +69,7 @@
 
         <div class="card">
           <div class="card-body ">
-            <h4>Kategori Jurusan</h4>
+            <h4>Jurusan</h4>
             <a href="<?= base_url($link . '/jurusan/new'); ?>" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus-circle"></i> Tambah</a>
             <div class="table-responsive">
 

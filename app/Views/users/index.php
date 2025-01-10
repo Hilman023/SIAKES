@@ -32,7 +32,7 @@
             Kelola <?= $title; ?>
           </div>
           <div class="card-body table-responsive">
-            <table class="table" id="table2">
+            <table class="table" id="table3">
               <thead>
                 <tr>
                   <th>No</th>
