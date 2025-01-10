@@ -83,11 +83,11 @@
                             </div>
                             <?= ($error) ? '<div class="error text-danger mb-2" style="margin-top: -15px">' . $error . '</div>' : ''; ?>
 
-                            <div class="form-group">
+                            <!--  <div class="form-group">
                                 <button type="button" id="bayar-50" class="btn btn-warning btn-sm">50%</button>
                                 <button type="button" id="bayar-100" class="btn btn-primary btn-sm">100%</button>
                                 <button type="button" id="bayar-custom" class="btn btn-secondary btn-sm">CUSTOM</button>
-                            </div>
+                            </div> -->
 
                             <!-- <div class="form-group">
                                 <label for="kembalian">Kembalian</label>
