@@ -43,7 +43,7 @@
                   <th>Qty</th>
                   <th>Total</th>
                   <th>Keterangan</th>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>

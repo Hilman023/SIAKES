@@ -37,8 +37,8 @@
                 <tr>
                   <th>No</th>
                   <th>No Transaksi</th>
-                  <th>Jenis</th>
-                  <th>Jenis Bayar</th>
+                  <th>Kategori</th>
+                  <th>Kategori Sub</th>
                   <th>Nama</th>
                   <th>Jenis Aktor</th>
                   <th>Tanggal Transaksi</th>
