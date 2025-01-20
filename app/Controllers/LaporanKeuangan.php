@@ -5,8 +5,8 @@ namespace App\Controllers;
 class LaporanKeuangan extends BaseController
 {
     private $model;
-    private $link = 'Laporan_keuangan';
-    private $view = 'Laporan_keuangan';
+    private $link = 'laporan_keuangan';
+    private $view = 'laporan_keuangan';
     private $title = 'Laporan Keuangan';
     public function __construct()
     {
