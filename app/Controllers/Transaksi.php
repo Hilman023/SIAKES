@@ -442,11 +442,12 @@ class Transaksi extends BaseController
             setAlert('warning', 'Peringatan', 'Data tidak sesuai');
             return redirect()->to($this->link);
         }
-
         if ($result['status'] == 'Lunas') {
             setAlert('warning', 'Peringatan', 'Pembayaran telah lunas, transaksi tidak bisa dihapus');
             return redirect()->to($this->link);
         }
+
+        $this->modeltransaksidetail->where('id_transaksi', $id)->delete();
 
         $res = $this->model->delete($id);
         if ($res) {
