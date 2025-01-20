@@ -38,7 +38,7 @@
                   <th>No</th>
                   <th>Nama</th>
                   <th>Kategori</th>
-                  <th>Sub Kategori</th>
+                  <th>Kategori Sub</th>
                   <th>Nominal</th>
                   <th>Qty</th>
                   <th>Total</th>

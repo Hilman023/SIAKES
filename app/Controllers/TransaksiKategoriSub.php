@@ -16,7 +16,7 @@ class TransaksiKategoriSub extends BaseController
     private $modeltransaksikategori;
     private $link = 'transaksi_kategori_sub';
     private $view = 'transaksi_kategori_sub';
-    private $title = 'Transaksi Kategori Sub';
+    private $title = 'Kategori Transaksi';
     public function __construct()
     {
         $this->model = new \App\Models\TransaksiKategoriSubModel();

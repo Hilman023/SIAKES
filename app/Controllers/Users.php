@@ -255,9 +255,9 @@ class Users extends BaseController
         $res = $this->model->update($id, $data);
         if ($res) {
             $title = ($active == 0) ? 'Non' : '';
-            setAlert('success', 'Berhasil', $title . ' aktif akun berhasil');
+            setAlert('success', 'Berhasil', $title . ' aktivasi akun berhasil');
         } else {
-            setAlert('warning', 'Peringatan', ' aktif akun gagal');
+            setAlert('warning', 'Peringatan', ' aktivasi akun berhasil');
         }
         return redirect()->to($this->link);
     }

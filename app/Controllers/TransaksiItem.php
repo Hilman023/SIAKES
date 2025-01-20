@@ -16,7 +16,7 @@ class TransaksiItem extends BaseController
     private $modelkategorisub;
     private $link = 'transaksi_item';
     private $view = 'transaksi_item';
-    private $title = 'Jenis Transaksi';
+    private $title = 'Item Transaksi';
 
     public function __construct()
     {

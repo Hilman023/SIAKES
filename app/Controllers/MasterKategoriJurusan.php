@@ -15,7 +15,7 @@ class MasterKategoriJurusan extends BaseController
     private $model;
     private $link = 'master_kategori/jurusan';
     private $view = 'master_kategori_jurusan';
-    private $title = 'Master Kategori Jurusan';
+    private $title = 'Kategori Master Jurusan';
     private $jenis = 'jurusan';
     private $redirect = 'master_kategori';
     public function __construct()

@@ -15,7 +15,7 @@ class MasterKategoriTahun extends BaseController
     private $model;
     private $link = 'master_kategori/tahun';
     private $view = 'master_kategori_tahun';
-    private $title = 'Master Kategori Tahun';
+    private $title = 'Kategori Master Tahun';
     private $jenis = 'tahun';
     private $redirect = 'master_kategori';
     public function __construct()

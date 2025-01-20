@@ -15,7 +15,7 @@ class MasterKategori extends BaseController
     private $model;
     private $link = 'master_kategori';
     private $view = 'master_kategori';
-    private $title = 'Master Kategori';
+    private $title = 'Kategori Master ';
     public function __construct()
     {
         $this->model = new \App\Models\MasterKategoriModel();
