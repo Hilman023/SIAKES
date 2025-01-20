@@ -70,12 +70,15 @@
 
                         <a href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>" class="btn btn-warning mb-2 btn-sm"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-info btn-sm mb-2" target="_blank" href="<?= base_url('pembayaran/new?id=' . $d['id']); ?>"><i class="fas fa-paper-plane"></i></a>
-                        <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
-                          <?= csrf_field(); ?>
-                          <input type='hidden' name='_method' value='DELETE' />
-                          <!-- GET, POST, PUT, PATCH, DELETE-->
-                          <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
-                        </form>
+                        <?php if ($d['status'] == 'Menunggu'): ?>
+
+                          <form class="d-inline" action='<?= base_url($link . '/' . $d['id']); ?>' method='post' enctype='multipart/form-data'>
+                            <?= csrf_field(); ?>
+                            <input type='hidden' name='_method' value='DELETE' />
+                            <!-- GET, POST, PUT, PATCH, DELETE-->
+                            <button type='button' onclick='deleteTombol(this)' class='btn btn-sm mb-2 btn-danger'><i class="fas fa-trash-alt"></i></button>
+                          </form>
+                        <?php endif; ?>
                       <?php else: ?>
 
                       <?php endif; ?>
